@@ -9,20 +9,21 @@ import NavBar from './components/NavBar';
 function App() {
   const router = createBrowserRouter([
     {
-      path:"/",
+      path:"",
       element: <Accueil/>
     },
     {
-      path:"/connexion",
+      path:"connexion",
       element: <Connexion/>
     },
     {
-      path:"/inscription",
+      path:"inscription",
       element: <Inscription/>
     }
   ])
   return (
     <React.StrictMode>
+      <NavBar/>
       <RouterProvider router={router}/>
     </React.StrictMode>
   );

@@ -1,0 +1,24 @@
+.NavBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    background-color: #131921;
+    width: 100%;
+    padding: 1em 0em;
+}
+.NavBar>button {
+    text-decoration: none;
+    border: none;
+    color: white;
+    background-color: transparent;
+    margin-right: 1.5em;
+}
+.NavBar>button:hover {
+    color: #FF7E47;
+}
+.NavBar-Titre {
+    position: absolute;
+    left: 1.5em;
+    color: #FF7E47;
+}

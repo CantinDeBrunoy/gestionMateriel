@@ -1,8 +1,11 @@
+import "./NavBar.css"
+
 function NavBar() {
     return (
       <div className="NavBar">
-          <span>Connexion</span>
-          <span>Inscription</span>
+          <button className="NavBar-Titre">Le Mauvais Coin</button>
+          <button>Connexion</button>
+          <button>Inscription</button>
       </div>
     );
   }
