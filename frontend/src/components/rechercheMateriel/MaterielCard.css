@@ -1,0 +1,18 @@
+.MaterielCard{
+background-color: white;
+    margin: 5vw;
+    padding: 1.2vw;
+    border-radius: 0.3em;
+    width: 15%;
+    box-shadow: 0 2px 6px rgba(0,0,0,.16);
+}
+
+.MaterielCard-title{
+    text-align: center;
+}
+
+.MaterielCard:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+

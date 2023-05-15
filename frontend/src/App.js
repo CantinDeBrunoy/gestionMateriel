@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
 import Accueil from './components/Accueil';
-import NavBar from './components/NavBar';
+import RechercheMateriel from './components/rechercheMateriel/RechercheMateriel';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,6 +19,10 @@ function App() {
     {
       path:"inscription",
       element: <Inscription/>
+    },
+    {
+      path:"/rechercheMateriel",
+      element:<RechercheMateriel/>
     }
   ])
   return (
