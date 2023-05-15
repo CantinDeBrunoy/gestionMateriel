@@ -1,5 +1,5 @@
 import "./RechercheMateriel.css"
-import NavBar from "../NavBar";
+import NavBar from "../navBar/NavBar";
 import { useEffect, useState } from "react";
 import MaterielCard from "./MaterielCard";
 import search from "../../assets/images/search-outline.svg"

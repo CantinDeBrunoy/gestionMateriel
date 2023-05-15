@@ -17,6 +17,7 @@
 }
 .NavBar>button:hover {
     color: #FF7E47;
+    cursor: pointer;
 }
 .NavBar-Titre {
     position: absolute;

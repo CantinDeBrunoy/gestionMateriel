@@ -1,6 +1,6 @@
 import "./Accueil.css"
-import NavBar from "./NavBar";
-import logo from "../assets/images/logo-tmp.png"
+import NavBar from "./navBar/NavBar";
+import illustration from "../assets/images/illu-tmp.jpg"
 
 function Accueil() {
     return (
@@ -9,8 +9,8 @@ function Accueil() {
         <div className="Accueil">
           <div className="Accueil-left">
             <div className="Accueil-presentation">
-              <h1 className="Acueil-titre">Le Mauvais Coin</h1>
-              <span className="Accueil-logan">Le coin des malandrins</span>
+              <h1>Le Mauvais Coin</h1>
+              <span>Le coin des malandrins</span>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis lectus neque. 
                 Nam pharetra metus nunc, eget dictum odio elementum ac. Suspendisse sed blandit felis. 
@@ -18,10 +18,11 @@ function Accueil() {
                 maximus cursus lectus. Ut efficitur iaculis magna, in rhoncus dui pulvinar eget. 
                 Nam sit amet cursus dui.
               </p>
+              <button className="green">Je m'inscris !</button>
             </div>
           </div>
           <div className="Accueil-image">
-            <img src={logo} alt="Logo de l'appli"/>
+            <img src={illustration} alt="Logo de l'appli"/>
           </div>
         </div>
       </div>

@@ -1,11 +1,46 @@
+body {
+    background-color: #f0e8e0;
+}
 .Accueil {
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 10em;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10em 15em 0em 15em;
 }
-.Accueil-image>img {
-    width: 15em;
+.Accueil-left {
+    margin-right: 12em;
 }
 .Accueil-presentation {
-    width: 33%
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #e3b6894f;
+    padding: 2em;
+}
+.Accueil-presentation>h1 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+.Accueil-presentation>span {
+    font-size: 1em;
+    align-self: flex-end;
+    margin-bottom: 2em;
+}
+.Accueil-presentation>p {
+    text-align: justify;
+    margin-bottom: 1.5em;
+}
+.Accueil-presentation>button {
+    text-decoration: none;
+    border: none;
+    padding: 1em 1.75em;
+    margin-left: 10em;
+}
+.Accueil-presentation>button:hover {
+    cursor: pointer;
+}
+.Accueil-image>img {
+    align-self: flex-end;
+    width: 50em;
 }

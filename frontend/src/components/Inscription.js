@@ -1,5 +1,5 @@
 import "./Inscription.css";
-import NavBar from "./NavBar";
+import NavBar from "./navBar/NavBar";
 import logo from "../assets/images/logo-tmp.png"
 
 function Inscription() {
