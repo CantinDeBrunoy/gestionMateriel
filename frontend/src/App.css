@@ -1,0 +1,23 @@
+.InputText {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.ButtonForm {
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  margin: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.ButtonForm:hover {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid gray;
+}
+.blue {
+  background-color: aqua;
+}
+.green {
+  background-color: greenyellow;
+}
