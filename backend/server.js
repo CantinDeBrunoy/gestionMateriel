@@ -10,6 +10,8 @@ app.use(cors());
 app.use(express.json());
 dotenv.config();
 
+
+
 //RecupUser
 app.get("/getUtilisateurs",async(req,res)=> {
     const personnes = await getUsers();
@@ -24,15 +26,16 @@ app.get("/getMateriels",async(req,res)=> {
 
 //AjoutPersonne
 app.post('/AjoutUtilisateur',async(req,res)=> {
-    const utilisateur = {
+   /* const utilisateur = {
         nom : 'Didi',
         prenom : 'Didier',
         adresse_mail : 'Didier.Didi@gmail.com',
         mot_de_passe : 'mdp',
         role: 'utilisateur'
-    };
-    const user = await addUtilisateur(utilisateur);
-    res.send(user);
+    }; */
+    const user = req.body;
+    const newUser = await addUtilisateur(utilisateur);
+    res.send(newUser);
 });
 
 //AjoutMateriel

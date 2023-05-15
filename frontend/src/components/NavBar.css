@@ -7,14 +7,14 @@
     width: 100%;
     padding: 1em 0em;
 }
-.NavBar>button {
+.NavBar>a {
     text-decoration: none;
     border: none;
     color: white;
     background-color: transparent;
     margin-right: 1.5em;
 }
-.NavBar>button:hover {
+.NavBar>a:hover {
     color: #FF7E47;
 }
 .NavBar-Titre {

@@ -1,11 +1,12 @@
 import "./NavBar.css"
 
 function NavBar() {
+
     return (
       <div className="NavBar">
-          <button className="NavBar-Titre">Le Mauvais Coin</button>
-          <button>Connexion</button>
-          <button>Inscription</button>
+          <a href="/" className="NavBar-Titre">Le Mauvais Coin</a>
+          <a href="/Connexion">Connexion</a>
+          <a href="/Inscription">Inscription</a>
       </div>
     );
   }
