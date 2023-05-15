@@ -20,5 +20,5 @@
 .NavBar-Titre {
     position: absolute;
     left: 1.5em;
-    color: #FF7E47;
+    color: #FF7E47 !important;
 }

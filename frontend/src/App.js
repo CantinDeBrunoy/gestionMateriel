@@ -23,7 +23,6 @@ function App() {
   ])
   return (
     <React.StrictMode>
-      <NavBar/>
       <RouterProvider router={router}/>
     </React.StrictMode>
   );

@@ -1,0 +1,29 @@
+.Inscription {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.Inscription-form {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(239, 235, 235);
+    border-radius: 20px;
+    padding: 2rem 5rem;
+}
+.Inscription-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 2em;
+}
+.Inscription-right>img {
+    width: 15em;
+}
+.Inscription-titre {
+    margin-bottom: 2em;
+}
