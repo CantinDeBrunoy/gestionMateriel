@@ -1,4 +1,4 @@
-import "./Inscription.css"
+import "./Accueil.css"
 import NavBar from "./NavBar";
 import logo from "../assets/images/logo-tmp.png"
 
