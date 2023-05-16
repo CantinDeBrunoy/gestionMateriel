@@ -1,10 +1,7 @@
 import "./Inscription.css";
-<<<<<<< HEAD
 import NavBar from "./navBar/NavBar";
 import logo from "../assets/images/logo-tmp.png"
-=======
 import axios from "axios";
->>>>>>> ff9d73e5b36ccdbe85ed39af1c2baa90dddb3910
 
 function Inscription() {
   const createUser = async function() {
@@ -35,7 +32,6 @@ function Inscription() {
     console.log("Utilisateur créé : "+newUser);
   }
   return (
-<<<<<<< HEAD
   <div>
     <NavBar/>
     <div className="Inscription">
@@ -61,24 +57,6 @@ function Inscription() {
           <span>Le Mauvais Coin, le coin des malandrins</span>
         </div>
       </div>
-=======
-  <div className="Inscrpition">
-    <h2>Nom de l'appli</h2>
-    <h3>Je créé mon compte : </h3>
-    <div className="Inscription-form">
-        <span>Nom</span>
-        <input type="text" className="InputText" name="nom"/>
-        <span>Prenom</span>
-        <input type="text" className="InputText" name="prenom"/>
-        <span>Adresse mail</span>
-        <input type="text" className="InputText" name="mail"/>
-        <span>Mot de passe</span>
-        <input type="text" className="InputText" name="mdp"/>
-        <span>Confirmer le mot de passe</span>
-        <input type="checkbox" className="InputCheckbox"/> Afficher les mots de passe
-        <input type="text" className="InputText" name="confirm_mdp"/>
-        <button className="ButtonForm green" onClick={createUser}>Valider</button>
->>>>>>> ff9d73e5b36ccdbe85ed39af1c2baa90dddb3910
     </div>
   </div>
   );
