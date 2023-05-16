@@ -10,7 +10,7 @@
 .Inscription-form {
     display: flex;
     justify-content: center;
-    background-color: rgb(239, 235, 235);
+    background-color: #e3b6894f;
     border-radius: 20px;
     padding: 2rem 5rem;
 }

@@ -4,7 +4,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
 import Accueil from './components/Accueil';
-import RechercheMateriel from './components/rechercheMateriel/RechercheMateriel';
+import PageRecherche from './components/PageRecherche'
+import Ticket from './components/Ticket';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +23,11 @@ function App() {
     },
     {
       path:"/rechercheMateriel",
-      element:<RechercheMateriel/>
+      element:<PageRecherche/>
+    },
+    {
+      path:"/Ticket",
+      element:<Ticket/>
     }
   ])
   return (
