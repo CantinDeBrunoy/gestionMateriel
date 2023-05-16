@@ -18,6 +18,10 @@
     margin-right: 2em;
 }
 
+.MenuAdmin-navBar>a:hover{
+    cursor: pointer;
+}
+
 .MenuAdmin-navBar-span-isActive{
     background-color: #FF7E47;
     color: black;
