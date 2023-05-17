@@ -1,24 +1,50 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import './TableauAgGrid.css'
 
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
+import { localText } from './../../assets/constantes/localText';
+import { defaultColDef } from '../../assets/constantes/rowDefs';
+
 const  TableauAgGrid = ({page}) => {
-    console.log(page);
+    
+  const gridRef = useRef();
+
+  const handleGridColumnsChanged = () => sizeToFit();
+
+  const handleOnGridReady = () => sizeToFit();
+
+  const onFilterTextChange = (e) => {
+    gridRef.current.api.setQuickFilter(e.target.value);
+  };
+
+  const sizeToFit = () => gridRef.current.api.sizeColumnsToFit();
 
     return (
       <div className="TableauAgGrid">
-        <input/>
-        <div className="ag-theme-alpine" style={{height: 400, width: 1000}}>
-            <AgGridReact
-               rowData={page.data}
-               columnDefs={page.columnDefs}>
-           </AgGridReact>
-       </div>
+        <div className="TableauAgGrid-navBar-filter">
+          <input className="TableauAgGrid-navBar-input" onChange={onFilterTextChange} placeholder="Recherche Rapide" />
         </div>
+        <div style={{ height: '47em' }} className="ag-theme-alpine">
+          <AgGridReact
+            ref={gridRef}
+            defaultColDef={defaultColDef}
+            enableCellTextSelection={true}
+            rowData={page.data}
+            onGridReady={handleOnGridReady}
+            onGridColumnsChanged={handleGridColumnsChanged}
+            animateRows={true}
+            columnDefs={page.columnDefs}
+            localeText={localText}
+            suppressHorizontalScroll={true}
+            overlayLoadingTemplate={'<span class="ag-overlay-loading-center">Chargement des données...</span>'}
+            overlayNoRowsTemplate={'<span class="ag-overlay-loading-center">Pas de données</span>'}
+          ></AgGridReact>
+        </div>
+      </div>
     );
   }
   
