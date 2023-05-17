@@ -1,3 +1,13 @@
 .TableauAgGrid{
     padding:2em;
 }
+
+.TableauAgGrid-navBar-filter {
+    display: flex;
+}
+
+.TableauAgGrid-navBar-input {
+    width: 20em;
+    padding: .5em;
+    margin-bottom: 2vh;
+}
