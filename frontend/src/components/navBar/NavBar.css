@@ -10,9 +10,7 @@
 .NavBar>a {
     text-decoration: none;
     font-size: 18px;
-    border: none;
     color: white;
-    background-color: transparent;
     margin-right: 1.5em;
 }
 .NavBar>a:hover {

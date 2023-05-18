@@ -16,7 +16,7 @@
   border: 1px solid gray;
 }
 .orange {
-  background-color: #d9534f;
+  background-color: #FF7E47;
 }
 .black {
   background-color: #131921;
@@ -30,8 +30,13 @@
 .red {
   background-color: #d9534f;
 }
-
 .dark-blue{
   background-color: #232f3e;
   color:white;
+}
+.orange-transparent {
+  background-color: #e3b6894f;
+}
+.white-transparent {
+  background-color: #ffffffc0;
 }

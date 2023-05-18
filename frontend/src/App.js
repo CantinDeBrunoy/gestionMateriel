@@ -26,7 +26,7 @@ function App() {
       element:<PageRecherche/>
     },
     {
-      path:"/Ticket",
+      path:"/ticket",
       element:<Ticket/>
     }
   ])

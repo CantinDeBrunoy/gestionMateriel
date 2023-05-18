@@ -1,8 +1,4 @@
 .Connexion {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -12,7 +8,61 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #e3b6894f;
-    border-radius: 20px;
-    padding: 2rem 5rem;
+}
+@media screen and (max-width: 480px) {
+    .Connexion {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        margin: 1em;
+    }
+    .Connexion-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: 1rem 2rem 0rem;
+    }
+    .Connexion-form>input {
+        margin: 0.5em 0.5em 0.5em 0em;
+    }
+    .Connexion-form>button {
+        margin: 1.5em 6.5em 0.5em;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .Connexion {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        margin: 3em 5em;
+    }
+    .Connexion-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: 1rem 2rem 0rem;
+    }
+    .Connexion-form>input {
+        margin: 0.5em 0.5em 0.5em 0em;
+    }
+    .Connexion-form>button {
+        margin: 1.5em 6.5em 0.5em;
+    }
+}
+@media screen and (min-width: 769px) {
+    .Connexion {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .Connexion-form {
+        background-color: #e3b6894f;
+        border-radius: 20px;
+        padding: 2rem 5rem;
+    }
 }
