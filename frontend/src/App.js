@@ -4,6 +4,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Connexion from './components/Connexion';
 import Inscription from './components/Inscription';
 import Accueil from './components/Accueil';
+import PageRecherche from './components/PageRecherche'
+import Ticket from './components/Ticket';
 import RechercheMateriel from './components/rechercheMateriel/RechercheMateriel';
 import MenuAdmin from './components/menuAdmin/MenuAdmin';
 
@@ -23,6 +25,11 @@ function App() {
     },
     {
       path:"/rechercheMateriel",
+      element:<PageRecherche/>
+    },
+    {
+      path:"/ticket",
+      element:<Ticket/>
       element:<RechercheMateriel/>
     },
     {

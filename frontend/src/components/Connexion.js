@@ -21,7 +21,6 @@ function Connexion() {
               <input type="text" className="InputText" name="mail"/>
               <span>Mot de passe</span>
               <input type="text" className="InputText" name="mdp"/>
-              <button className="ButtonForm">Mot de passe oublié ?</button>
               <button className="ButtonForm green">Valider</button>
           </div>
           <div>

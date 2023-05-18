@@ -1,46 +1,249 @@
-body {
-    background-color: #f0e8e0;
-}
 .Accueil {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 10em 15em 0em 15em;
+    margin-bottom: 3em;
 }
-.Accueil-left {
-    margin-right: 12em;
-}
-.Accueil-presentation {
+.Accueil-card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    background-color: #e3b6894f;
-    padding: 2em;
 }
-.Accueil-presentation>h1 {
-    font-size: 3em;
+.Accueil-card>h1 {
     font-weight: 700;
     margin-bottom: 0px;
 }
-.Accueil-presentation>span {
+.Accueil-card>p {
+    text-align: justify;
+}
+.Accueil-card>span {
     font-size: 1em;
     align-self: flex-end;
-    margin-bottom: 2em;
 }
-.Accueil-presentation>p {
-    text-align: justify;
-    margin-bottom: 1.5em;
-}
-.Accueil-presentation>button {
+.Accueil-card>a {
     text-decoration: none;
     border: none;
+    color: white;
     padding: 1em 1.75em;
-    margin-left: 10em;
 }
-.Accueil-presentation>button:hover {
+.Accueil-card>a:hover {
     cursor: pointer;
 }
-.Accueil-image>img {
-    align-self: flex-end;
-    width: 50em;
+.Accueil-ticket {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@media screen and (max-width: 480px) {
+    .Accueil {
+        flex-direction: column-reverse;
+    }
+    .Accueil-image>img {
+        align-self: flex-end;
+        width: 30em;
+    }
+    .Accueil-card {
+        justify-content: center;
+        align-items: center;
+    }
+    .Accueil-card>h1 {
+        background-color: #FF7E47;
+        padding: 0.4em 1.75em 0em;
+        font-size: 2em;
+        margin-top: 0px;
+    }
+    .Accueil-card>span {
+        color: #FF7E47;
+        padding: 0.15em 0.5em 0.8em;
+        background-color: #131921;
+        margin-right: 13%;
+    }
+    .Accueil-card>p {
+        margin: 4em 2.5em 2.25em;
+    }
+    .Accueil-ticket {
+        background-image: url(../assets/images/illu2-tmp.jpg);
+        padding: 2em 0em;
+    }
+    .Accueil-ticket>.Accueil-card>p {
+        margin: 2.25em 2.5em;
+    }
+    .Accueil-ticket>.Accueil-card>a {
+        margin-bottom: 1.5em;
+    }
+    .Accueil-ticket>.Accueil-image {
+        display: none;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .Accueil {
+        flex-direction: column-reverse;
+    }
+    .Accueil>.Accueil-card {
+        background-image: url(../assets/images/illu-tmp.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .Accueil-card {
+        justify-content: center;
+        align-items: center;
+    }
+    .Accueil-card>h1 {
+        background-color: #FF7E47;
+        padding: 0.4em 1.75em 0em;
+        font-size: 2em;
+        margin-top: 2em;
+    }
+    .Accueil-card>span {
+        color: #FF7E47;
+        padding: 0.15em 0.5em 0.8em;
+        background-color: #131921;
+        margin-right: 27%;
+    }
+    .Accueil-card>p {
+        margin: 4em 5.5em 2.25em;
+        padding: 1.25em 4em;
+        background-color: #ffffff;
+    }
+    .Accueil-card>a {
+        margin-bottom: 2em;
+    }
+    .Accueil-image>img {
+        display: none;
+    }
+    .Accueil-ticket>.Accueil-image>img {
+        display: block;
+        width: 100%;
+    }
+    .Accueil-ticket>.Accueil-card {
+        margin: 3em;
+    }
+    .Accueil-ticket>.Accueil-card>p {
+        background-color: transparent;
+        padding: 1em;
+        margin: 1em 0em;
+    }
+    .Accueil-card>h2 {
+        margin: 1em;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .Accueil {
+        flex-direction: column-reverse;
+    }
+    .Accueil>.Accueil-card {
+        background-image: url(../assets/images/illu-tmp.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .Accueil-card {
+        justify-content: center;
+        align-items: center;
+    }
+    .Accueil-card>h1 {
+        background-color: #FF7E47;
+        padding: 0.4em 1.75em 0em;
+        font-size: 2em;
+        margin-top: 2em;
+    }
+    .Accueil-card>span {
+        color: #FF7E47;
+        padding: 0.15em 0.5em 0.8em;
+        background-color: #131921;
+        margin-right: 32.6%;
+    }
+    .Accueil-card>p {
+        margin: 4em 8.5em 2.25em;
+        padding: 1.25em 7em;
+        background-color: #ffffff;
+    }
+    .Accueil-card>a {
+        margin-bottom: 2em;
+    }
+    .Accueil-image>img {
+        display: none;
+    }
+    .Accueil-ticket>.Accueil-image>img {
+        display: block;
+        width: 100%;
+    }
+    .Accueil-ticket>.Accueil-card {
+        margin: 1em 5em 1em 9em;
+    }
+    .Accueil-ticket>.Accueil-card>p {
+        background-color: transparent;
+        margin: 1em;
+        padding: 1em;
+    }
+    .Accueil-card>h2 {
+        margin: 1em 0.5em;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .Accueil {
+        margin: 3em 0em 3em 6em;
+        justify-content: space-around;
+    }
+    .Accueil-card {
+        margin-right: 4em;
+        background-color: #e3b6894f;
+        padding: 2em;
+    }
+    .Accueil-card>h1 {
+        font-size: 2em;
+    }
+    .Accueil-card>span {
+        margin-bottom: 2em;
+    }
+    .Accueil-card>p {
+        margin-bottom: 1.5em;
+    }
+    .Accueil-card>a {
+        margin-left: 9.4em;
+    }
+    .Accueil-image>img {
+        width: fit-content;
+        height: 28em;
+    }
+    .Accueil-ticket {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+@media screen and (min-width: 1201px) {
+    .Accueil {
+        margin: 10em 15em 5em 15em;
+    }
+    .Accueil-card {
+        margin-right: 12em;
+        justify-content: flex-start;
+        background-color: #e3b6894f;
+        padding: 2em;
+    }
+    .Accueil-card>h1 {
+        font-size: 3em;
+    }
+    .Accueil-card>span {
+        margin-bottom: 2em;
+    }
+    .Accueil-card>p {
+        margin-bottom: 1.5em;
+    }
+    .Accueil-card>a {
+        margin-left: 10em;
+    }
+    .Accueil-image>img {
+        align-self: flex-end;
+        width: 50em;
+    }
+    .Accueil-ticket {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        background-color: #131921;
+    }
+    .Accueil-ticket>.Accueil-card {
+        padding: 1em 2em;
+        margin-right: 20em;
+        background-color: #f0e8e0;
+        border-bottom: solid 1em #FF7E47;
+    }
 }
