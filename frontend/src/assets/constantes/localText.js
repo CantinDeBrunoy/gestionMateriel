@@ -1,0 +1,15 @@
+export const localText = {
+    equals: 'égale',
+    greaterThan: 'supérieur',
+    lessThan: 'inférieur',
+    contains: 'contient',
+    notContains: 'ne contient pas',
+    exactContains: 'contient exactement',
+    notExactContains: 'ne contient pas exactement',
+    startsWith: 'commence par',
+    endsWith: 'finit par',
+    clearFilter: 'Effacer',
+    filterOoo: 'Filtre...',
+    andCondition: 'ET',
+    orCondition: 'OU',
+  };
