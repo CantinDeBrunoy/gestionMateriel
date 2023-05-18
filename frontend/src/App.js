@@ -30,7 +30,6 @@ function App() {
     {
       path:"/ticket",
       element:<Ticket/>
-      element:<RechercheMateriel/>
     },
     {
       path:"/menuAdmin",
