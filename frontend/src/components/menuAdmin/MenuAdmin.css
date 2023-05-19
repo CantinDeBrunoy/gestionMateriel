@@ -3,9 +3,8 @@
     height: 6.5vh;
     display: flex;
     justify-content: flex-end;
-    
+    flex-wrap: wrap;
 }
-
 .MenuAdmin-navBar>a{
     color: white;
     text-decoration: none;
@@ -17,14 +16,37 @@
     font-weight:600;
     margin-right: 2em;
 }
-
 .MenuAdmin-navBar>a:hover{
     cursor: pointer;
 }
-
 .MenuAdmin-navBar-span-isActive{
     background-color: #FF7E47;
     color: black;
     cursor: pointer;
     opacity: 0.9;
+}
+@media screen and (max-width: 480px) {
+    .MenuAdmin-navBar {
+        height: auto;
+    }
+    .MenuAdmin-navBar>a {
+        width: 100%;
+        height: 2.25em;
+        margin-right: 0em;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .MenuAdmin-navBar {
+        height: auto;
+    }
+    .MenuAdmin-navBar>a {
+        width: 50%;
+        height: 2.25em;
+        margin-right: 0em;
+        padding-left: 0em;
+        padding-right: 0em;
+    }
+}
+@media screen and (min-width: 769px) {
+
 }
