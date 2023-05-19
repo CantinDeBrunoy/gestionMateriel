@@ -37,8 +37,30 @@
     text-decoration: none;
     border: none;
     margin-bottom: 0.5em;
+    resize: none;
+}
+.Ticket-form>.Ticket-show-materiel {
+    margin: 2em 0em 0.5em;
+    text-decoration: none;
+    border: none;
+    padding: 0.5em 1.25em;
+    cursor: pointer;
+}
+.Ticket-form>.Ticket-show-materiel:hover {
+    color: white;
+}
+.Ticket-form>.Ticket-submit {
+    margin-top: 2em;
+    align-self: flex-end;
+    cursor: pointer;
 }
 .Ticket-date>input {
     text-decoration: none;
     border: none;
+    padding: 0.2em 0.45em;
+    margin-bottom: 0.15em;
+    align-self: right;
+}
+.Ticket-materiel {
+    width: 100%;
 }
