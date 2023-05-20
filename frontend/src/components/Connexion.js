@@ -1,12 +1,13 @@
 import "./Connexion.css";
 import axios from "axios";
-import MyContext from "../App"
 import { StoreContext } from "../store/store.js";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Connexion() {
   const { state, dispatch } = useContext(StoreContext);
+  const navigate = useNavigate();
 
   const showState = function() {
     console.log("Connected ? "+state.connected);
@@ -17,6 +18,12 @@ function Connexion() {
   const verifierUser = async function() {
     const email = document.getElementsByName("mail")[0].value;
     const mdp = document.getElementsByName("mdp")[0].value;
+
+    if (!mdp || !email) {
+      alert("Entrez vos informations !")
+      return;
+    }
+
     const users = (await axios.get("http://127.0.0.1:3000/getUtilisateurs")).data;
     let userExists = false;
     let correctUser;
@@ -27,17 +34,21 @@ function Connexion() {
       }
     })
     if (!userExists) {
-      console.log("No such user");
+      alert("L'utilsateur n'existe pas !");
       return;
     }
     if (mdp !== correctUser.mot_de_passe) {
-      console.log("Wrong password");
+      alert("Mot de passe incorrect");
       return;
-    }
-    console.log("Connected !")
+    } 
     state.connected = true;
     state.currentUserName = correctUser.adresse_mail;
     state.currentUserRole = correctUser.role;
+
+    if (state.connected) {
+      navigate("/");
+    }    
+
   }
   return (
     <div>
