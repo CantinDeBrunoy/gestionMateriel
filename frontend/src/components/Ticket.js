@@ -2,6 +2,7 @@ import { useState } from "react";
 import RechercheMateriel from "./rechercheMateriel/RechercheMateriel";
 import "./Ticket.css";
 import * as React from "react";
+import NavBar from '../components/navBar/NavBar'
 
 function Ticket() {
     const [displayListMateriel, setDisplayListMateriel] = React.useState(false);
@@ -16,6 +17,7 @@ function Ticket() {
 
     return (
         <div>
+            <NavBar />
             <div className="Ticket">
                 <h2>Réserver nos équipements</h2>
                 <h3>Créer un ticket : </h3>

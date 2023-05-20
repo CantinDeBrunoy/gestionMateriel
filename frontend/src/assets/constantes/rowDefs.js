@@ -7,7 +7,7 @@ export const defaultColDef = {
 export const rowTransactions =[
     { 
         headerName: 'Date de début',
-        field: 'dateDebut',
+        field: 'date_debut',
         filter: 'agDateColumnFilter',
         filterParams: DateFilterParams,
         sortable: true,
@@ -17,7 +17,7 @@ export const rowTransactions =[
      },
      { 
         headerName: 'Date de fin',
-        field: 'dateFin',
+        field: 'date_fin',
         filter: 'agDateColumnFilter',
         filterParams: DateFilterParams,
         sortable: true,
@@ -26,8 +26,8 @@ export const rowTransactions =[
         },
      },
      { 
-        headerName: 'Personne',
-        field: 'personne',
+        headerName: 'Object',
+        field: 'nom',
         filter: 'agTextColumnFilter',
         filterParams: TextFilterParams,
         sortable: true,
@@ -36,8 +36,8 @@ export const rowTransactions =[
         },
      },
      { 
-        headerName: 'Objet',
-        field: 'objet',
+        headerName: 'Personne',
+        field: 'prenom',
         filter: 'agTextColumnFilter',
         filterParams: TextFilterParams,
         sortable: true,
@@ -100,6 +100,7 @@ export const rowMateriel = [
         cellRenderer: (params) => {
         return (params.value ? formatCellRenderer(params) : '')
         },
+
      },
      { 
         headerName: 'Stock',

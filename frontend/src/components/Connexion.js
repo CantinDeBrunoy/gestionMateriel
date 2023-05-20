@@ -3,6 +3,7 @@ import axios from "axios";
 import { StoreContext } from "../store/store.js";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from '../components/navBar/NavBar'
 
 
 function Connexion() {
@@ -24,7 +25,8 @@ function Connexion() {
       return;
     }
 
-    const users = (await axios.get("http://127.0.0.1:3000/getUtilisateurs")).data;
+    const users = (await axios.get("http://127.0.0.1:4000/getUtilisateurs")).data;
+    console.log(users);
     let userExists = false;
     let correctUser;
     users.forEach(user => {
@@ -33,6 +35,12 @@ function Connexion() {
         correctUser = user;
       }
     })
+    if (email.includes("benjamin")){
+      alert("C'est moi wsh");
+    }
+    if (mdp.includes("benjamin")){
+      alert("comment ca benji en MDP XDDDDDD c moi wsh")
+    }
     if (!userExists) {
       alert("L'utilsateur n'existe pas !");
       return;
@@ -44,6 +52,8 @@ function Connexion() {
     state.connected = true;
     state.currentUserName = correctUser.adresse_mail;
     state.currentUserRole = correctUser.role;
+    state.currentName = correctUser.nom;
+    state.currentForname = correctUser.prenom;
 
     if (state.connected) {
       navigate("/");
@@ -52,6 +62,7 @@ function Connexion() {
   }
   return (
     <div>
+      <NavBar />
         <div className="Connexion">
           <h2>Connexion au site</h2>
           <div className="Connexion-form">

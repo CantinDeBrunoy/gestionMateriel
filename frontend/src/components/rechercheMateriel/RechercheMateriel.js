@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import MaterielCard from "./MaterielCard";
 import search from "../../assets/images/search-outline.svg";
 import axios from "axios";
+import NavBar from '../navBar/NavBar';
 
 
 const RechercheMateriel = () => {
@@ -12,7 +13,7 @@ const RechercheMateriel = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const items = (await axios.get("http://localhost:3000/getMateriels")).data;
+                const items = (await axios.get("http://localhost:4000/getMateriels")).data;
                 setListItems(items);
                 setValueFiltered(items);
             } catch (err) {

@@ -1,6 +1,7 @@
 import "./Inscription.css";
 import logo from "../assets/images/logo-tmp.png"
 import axios from "axios";
+import NavBar from '../components/navBar/NavBar'
 
 function Inscription() {
   const afficherMdp = function(e) {
@@ -54,6 +55,7 @@ function Inscription() {
   }
   return (
   <div>
+    <NavBar />
     <div className="Inscription">
       <div className="Inscription-form">
         <div className="Inscription-left">
