@@ -19,18 +19,6 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     // Gérez les différentes actions ici
-    case 'ADD_MATERIAL':
-      return {
-        ...state,
-        selectedMaterials: new Set(state.selectedMaterials).add(action.payload)
-      }
-    case 'REMOVE_MATERIAL':
-      return {
-        ...state,
-        selectedMaterials: new Set(state.selectedMaterials).delete(action.payload)
-      }  
-    default:
-      return state;  
 
   }
 };
