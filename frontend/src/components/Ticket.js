@@ -1,5 +1,4 @@
 import { useState } from "react";
-import NavBar from "./navBar/NavBar";
 import RechercheMateriel from "./rechercheMateriel/RechercheMateriel";
 import "./Ticket.css";
 import * as React from "react";
@@ -17,7 +16,6 @@ function Ticket() {
 
     return (
         <div>
-            <NavBar/>
             <div className="Ticket">
                 <h2>Réserver nos équipements</h2>
                 <h3>Créer un ticket : </h3>

@@ -34,7 +34,7 @@ app.post('/AjoutUtilisateur',async(req,res)=> {
         role: 'utilisateur'
     }; */
     const user = req.body;
-    const newUser = await addUtilisateur(utilisateur);
+    const newUser = await addUtilisateur(user);
     res.send(newUser);
 });
 

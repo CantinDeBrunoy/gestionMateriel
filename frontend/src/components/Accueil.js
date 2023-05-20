@@ -1,5 +1,4 @@
 import "./Accueil.css"
-import NavBar from "./navBar/NavBar";
 import illustration from "../assets/images/illu-tmp.jpg"
 import illustration2 from "../assets/images/illu2-tmp.jpg"
 
@@ -8,7 +7,6 @@ var isConnected = true; //Pour afficher ou non des elems si l'utilisateur est co
 function Accueil() {
     return (
       <div>
-        <NavBar/>
         <div className="Accueil">
           <div className="Accueil-card">
             <h1>Le Mauvais Coin</h1>

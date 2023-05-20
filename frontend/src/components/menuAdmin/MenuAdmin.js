@@ -1,5 +1,4 @@
 import "./MenuAdmin.css"
-import NavBar from "../navBar/NavBar";
 import { useState } from "react";
 import TableauAgGrid from "./TableauAgGrid.js";
 import { rowMateriel, rowTransactions, rowUsers } from "../../assets/constantes/rowDefs";
@@ -68,7 +67,6 @@ const  MenuAdmin = () => {
 
     return (
       <div className="MenuAdmin">
-          <NavBar/>
           <div className="MenuAdmin-navBar dark-blue">
             {
                 activePage.map((page)=><a key={page.title} onClick={() => onClickSubNavBar(page)} className={page.isActive ? 'MenuAdmin-navBar-span-isActive': ''}>{page.title}</a>)
