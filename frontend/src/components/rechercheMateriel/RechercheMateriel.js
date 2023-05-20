@@ -41,7 +41,7 @@ const RechercheMateriel = () => {
       
   </div>
   <div className="rechercheMateriel-listItems">
-  {valueFiltered && valueFiltered.map((obj)=><MaterielCard key={obj.nom} card={obj.nom} />)}
+  {valueFiltered && valueFiltered.map((obj)=><MaterielCard key={obj.id} card={obj} />)}
   </div>
   </div>
   );

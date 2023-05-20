@@ -1,8 +1,11 @@
 import "./Inscription.css";
 import logo from "../assets/images/logo-tmp.png"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Inscription() {
+  const navigate = useNavigate();
+
   const afficherMdp = function(e) {
     console.log(e.target.checked)
     const mdp = document.getElementsByName("mdp")[0];
@@ -51,6 +54,8 @@ function Inscription() {
 
     await axios.post("http://127.0.0.1:3000/AjoutUtilisateur", body);
     alert("Utilisateur créé !");
+    navigate("/Connexion");
+
   }
   return (
   <div>

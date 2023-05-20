@@ -10,12 +10,27 @@ const initialState = {
   connected: false,
   currentUserName: "",
   currentUserRole: "",
+  currentUserId: "",
+
+  selectedMaterials: new Set()
 };
 
 // Définissez un réducteur pour gérer les actions et mettre à jour l'état du store
 const reducer = (state, action) => {
   switch (action.type) {
     // Gérez les différentes actions ici
+    case 'ADD_MATERIAL':
+      return {
+        ...state,
+        selectedMaterials: new Set(state.selectedMaterials).add(action.payload)
+      }
+    case 'REMOVE_MATERIAL':
+      return {
+        ...state,
+        selectedMaterials: new Set(state.selectedMaterials).delete(action.payload)
+      }  
+    default:
+      return state;  
 
   }
 };

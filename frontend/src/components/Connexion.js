@@ -9,12 +9,6 @@ function Connexion() {
   const { state, dispatch } = useContext(StoreContext);
   const navigate = useNavigate();
 
-  const showState = function() {
-    console.log("Connected ? "+state.connected);
-    console.log("User : "+state.currentUserName);
-    console.log("Role : "+state.currentUserRole)
-  }
-
   const verifierUser = async function() {
     const email = document.getElementsByName("mail")[0].value;
     const mdp = document.getElementsByName("mdp")[0].value;
@@ -44,10 +38,10 @@ function Connexion() {
     state.connected = true;
     state.currentUserName = correctUser.adresse_mail;
     state.currentUserRole = correctUser.role;
+    state.currentUserId = correctUser.id;
 
-    if (state.connected) {
-      navigate("/");
-    }    
+    navigate("/");
+    
 
   }
   return (

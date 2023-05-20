@@ -31,3 +31,15 @@ export async function addMateriel(materiel){
     const result = await pool.query(`INSERT INTO materiel (nom, categorie, prix, marque, quantite) VALUES ('${materiel.nom}', '${materiel.categorie}', ${materiel.prix}, '${materiel.marque}', ${materiel.quantite})`);
     return result[0];
 }
+
+export async function addPret(pret) {
+    const result = await pool.query(`INSERT INTO pret (date_debut, date_fin, utilisateur, nom, description) VALUES (?, ?, ?, ?, ?)`,
+    [pret.dateDebut, pret.dateFin, pret.userId, pret.nom, pret.description]);
+    return result[0].insertId;
+}
+
+export async function addPretMateriel(pretMateriel) {
+    const result = await pool.query(`INSERT INTO pretMateriel (materiel, pret) VALUES (?, ?)`,
+    [pretMateriel.idMateriel, pretMateriel.idPret]);
+    return result[0].insertId;
+}
