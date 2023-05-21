@@ -1,6 +1,8 @@
 import "./MaterielCard.css";
 
 const  MaterielCard = ({card}) => {
+
+  console.log(card);
     return (
       <div className="MaterielCard">
         <div>
@@ -12,10 +14,10 @@ const  MaterielCard = ({card}) => {
         <div>
           <span >
           <ul>
-            <li>{card.marque}</li>
-            <li>{card.description}</li>
-            <li>Prix : {card.prix}€</li>
-            <li>Quantité restante : {card.quantite}</li>
+            <li>Marque :{card.marque ? card.marque :' marque inconnue'} </li>
+            <li>Description :{card.description ? card.description :' aucune description'}</li>
+            <li>Prix : {card.prix ? card.prix :' prix inconnu'}€</li>
+            <li>Quantité restante : {card.quantite ? card.quantite :' quantité restante inconnue'}</li>
           </ul>
           </span>
         </div>

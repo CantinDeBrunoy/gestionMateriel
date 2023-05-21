@@ -64,6 +64,8 @@ textarea:focus, input:focus{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+
 @media screen and (max-width: 480px) {
     .rechercheMateriel-listItems{
         padding: 0.5em;
