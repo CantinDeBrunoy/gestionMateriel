@@ -7,9 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 
-const  BoutonUtilisateur = ({data}) => {
+const  BoutonUtilisateur = ({data,params,value},props) => {
     const navigate = useNavigate();
-    const [refreshPage,setRefreshPage]= useState(false);
+    const navigateToTicket = () => {
+      navigate('/ticket');
+    };
     const changeStatus = async() => {
       if (data.role ==="utilisateur"){
         alert("t'as glow up");
@@ -17,7 +19,7 @@ const  BoutonUtilisateur = ({data}) => {
       }
       else
       {
-        alert("t'as glow down")
+        alert("t'as glow down");
         data.role ="utilisateur";
       }
       const body = {
@@ -25,12 +27,13 @@ const  BoutonUtilisateur = ({data}) => {
         role : data.role
       }
       await axios.post("http://127.0.0.1:4000/changeStatus", body);
-      console.log(data);
-      setRefreshPage(!refreshPage);
+      navigate('/ticket');
     }
     return (
     <div className='BoutonUtilisateur' key = {data.adresse_mail}>
-      <button className='green' onClick={changeStatus}>Changer de status</button>
+      <button className='green' onClick={() => {
+  changeStatus();
+}}>Changer de statut</button>
       <img src={bin} width="30px" />
     </div>)
   }

@@ -17,7 +17,6 @@ const  ButtonHistorique = ({data}) => {
     const DeletePretMateriel = async() => {
       
       await axios.post("http://127.0.0.1:4000/DeletePretMateriel", body);
-      console.log(data);
     }
     return (
     <div className='ButtonHistorique' onClick= {DeletePretMateriel} key = {data.date_fin}>

@@ -181,6 +181,7 @@ export const rowUsers = [
          headerName: '',
          type:'rightAligned',
          suppressMenu: true,
+         cellRenderParams: {value:'toto'},
          cellRenderer:'btnCellRendererUtilsateur',
       },
 ]

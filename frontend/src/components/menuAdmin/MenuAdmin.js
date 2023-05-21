@@ -31,7 +31,6 @@ const MenuAdmin = () => {
             famille:marque
           }));
           const Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
-          console.log(Transaction);
           const TransactionFiltré = Transaction.map(({id,date_debut,date_fin,nom,description,adresse_mail}) => ({
             id: id,
             date_debut: date_debut,
@@ -61,7 +60,15 @@ const MenuAdmin = () => {
               isActive: false,
               data: utilisateursFiltres, // Utilisez la valeur mise à jour de listUtilisateur
               columnDefs: rowUsers,
-            }
+            },
+            {
+              id:3,
+              title:'Statistiques',
+              isActive:false,
+              data:[],
+              columnDefs:rowUsers,
+          }
+            
           ];
   
           setActivePage(updatedActivePage);

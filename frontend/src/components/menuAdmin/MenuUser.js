@@ -17,9 +17,7 @@ const MenuUser = () => {
       const fetchData = async () => {
         try {
           const Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
-          console.log(Transaction);
           const TransactionFiltréMail = Transaction.filter(transaction => transaction.adresse_mail === state.currentUserName);
-          console.log(TransactionFiltréMail);
           const TransactionFiltréFinal = TransactionFiltréMail.map(({ id,date_debut,date_fin,nom,description }) => ({
             id: id,
             date_debut: date_debut,

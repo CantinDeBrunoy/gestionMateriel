@@ -24,9 +24,6 @@ function NavBar() {
     navigate('/MenuUser');
   };
 
-
-  console.log("state connected",state.connected,state.currentName,state.currentForname);
-
   if (state.connected && state.currentUserRole ==="utilisateur") {
     return (
       <div className="NavBar">

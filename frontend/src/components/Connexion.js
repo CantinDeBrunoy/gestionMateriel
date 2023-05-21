@@ -33,7 +33,6 @@ function Connexion() {
     }
 
     const users = (await axios.get("http://127.0.0.1:4000/getUtilisateurs")).data;
-    console.log(users);
     let userExists = false;
     let correctUser;
     users.forEach(user => {

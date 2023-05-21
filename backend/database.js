@@ -15,6 +15,14 @@ export async function getUsers(){
     const request = await pool.query("SELECT * from utilisateur");
     return request[0];
 }
+export async function getAdminNumber(){
+    const request = await pool.query("SELECT COUNT(*) AS user_count FROM utilisateur WHERE role = 'admin'");
+    return request[0];
+}
+export async function getUsersNumber(){
+    const request = await pool.query("SELECT COUNT(*) AS user_count FROM utilisateur WHERE role = 'utilisateur'");
+    return request[0];
+}
 
 export async function getTransaction(){
     const request = await pool.query("SELECT pretMateriel.id, pret.date_debut, pret.date_fin, utilisateur.nom,utilisateur.prenom,utilisateur.adresse_mail,materiel.nom from pretMateriel INNER JOIN materiel ON materiel.id = pretMateriel.materiel INNER JOIN pret on pret.id = pretMateriel.pret JOIN utilisateur ON utilisateur.id = pret.utilisateur");

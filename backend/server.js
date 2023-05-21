@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket,changeStatus,deletePretMateriel} from "./database.js";
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket,changeStatus,deletePretMateriel,getUsersNumber,getAdminNumber} from "./database.js";
 
 
 const app = express();
@@ -18,6 +18,14 @@ dotenv.config();
 app.get("/getUtilisateurs",async(req,res)=> {
     const personnes = await getUsers();
     res.send(personnes);
+})
+app.get("/getUsersNumber",async(req,res)=> {
+    const users = await getUsersNumber();
+    res.send(users);
+})
+app.get("/getAdminsNumber",async(req,res)=> {
+    const admin = await getAdminNumber();
+    res.send(admin);
 })
 
 //getMateriel
