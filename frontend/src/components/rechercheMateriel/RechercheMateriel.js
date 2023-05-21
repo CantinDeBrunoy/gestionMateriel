@@ -46,7 +46,7 @@ const RechercheMateriel = ({setMaterielSelected,materielSelected}) => {
       
   </div>
   <div className="rechercheMateriel-listItems">
-  {valueFiltered && valueFiltered.map((obj)=><div key={obj.nom} onClick={() =>addMaterielToList(obj)}><MaterielCard  key={obj.nom} card={obj.nom} /></div>)}
+  {valueFiltered && valueFiltered.map((obj)=><div key={obj.nom} onClick={() =>addMaterielToList(obj)}><MaterielCard  key={obj.nom} card={obj} /></div>)}
   </div>
   </div>
   );

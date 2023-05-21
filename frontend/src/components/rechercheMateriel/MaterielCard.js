@@ -1,19 +1,22 @@
-import "./MaterielCard.css"
+import "./MaterielCard.css";
 
 const  MaterielCard = ({card}) => {
-   const quantite = 5;
-
     return (
-      <div className="MaterielCard ">
+      <div className={classNames} onClick={selectMateriel}>
         <div>
           <h1 className="MaterielCard-title">
-          {card}
+          {card.nom}
           </h1>
         </div>
         <hr/>
         <div>
           <span >
-          Adduxit poenales atque catenis enim eculei coopertos deiectos enim deiectos paene et uncosque paene parabat tenus tormenta quemquam paene gladii tenus gladii nec in ex castra tenus sceleste reversusque proscripti enim patratis Paulus meminit parabat ex is meminit absolutum castra.
+          <ul>
+            <li>{card.marque}</li>
+            <li>{card.description}</li>
+            <li>Prix : {card.prix}€</li>
+            <li>Quantité restante : {card.quantite}</li>
+          </ul>
           </span>
         </div>
           

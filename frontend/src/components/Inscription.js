@@ -1,11 +1,13 @@
 import "./Inscription.css";
 import logo from "../assets/images/logo-tmp.png"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Toaster from "./Toaster";
 import NavBar from '../components/navBar/NavBar'
 
 function Inscription() {
+  const navigate = useNavigate();
   const [showToaster,setShowToaster] = useState(false);
   const [infoToaster,setInfoToaster] = useState({
     message:'',
@@ -85,7 +87,6 @@ function Inscription() {
       taille:'petit',
     });
     setShowToaster(true);
-    
   }
   return (
   <div>

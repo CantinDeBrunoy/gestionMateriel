@@ -10,6 +10,7 @@ const initialState = {
   connected: false,
   currentUserName: "",
   currentUserRole: "",
+  currentUserId: "",
   currentName:"",
   currentForname:"",
 };

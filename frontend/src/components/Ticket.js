@@ -2,12 +2,20 @@ import { useState } from "react";
 import RechercheMateriel from "./rechercheMateriel/RechercheMateriel";
 import "./Ticket.css";
 import * as React from "react";
+import { StoreContext } from "../store/store";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import NavBar from '../components/navBar/NavBar'
 import Toaster from "./Toaster";
 
 
 function Ticket() {
+    const { state, dispatch } = React.useContext(StoreContext);
+    const navigate = useNavigate();
+
+    const [displayListMateriel, setDisplayListMateriel] = React.useState(false);
+    const showListMateriel = () => setDisplayListMateriel(!displayListMateriel);
     const [showToaster,setShowToaster] = useState(false);
     const [infoToaster,setInfoToaster] = useState({
         message:'Ticket envoyé',
@@ -23,14 +31,52 @@ function Ticket() {
     const current = new Date();
     const actualDate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
-    const [listItems,setListItems] = useState([
-        'aaaa','aaa','ab','abc','aabc','dsqdsq','dsqd','dsqdsq','trqsdqs','tfdqs'
-    ]);
+    const [mySet, setMySet] = useState(state.selectedMaterials);
+    
+    const sendTicket = async function() {
+        const nom = document.getElementById("ticket-nom").value;
+        const description = document.getElementById("ticket-description").value;
+        const dateDebut = document.getElementById("date-debut").value;
+        const dateFin = document.getElementById("date-fin").value;
+        const materiels = materielSelected;
 
-    const submitForm = () =>{
-        setShowToaster(true);
-    }
+        if (!nom || !description || !dateDebut || !dateFin) {
+            alert("Remplissez le formulare !");
+            return;
+        }
 
+        if (dateDebut > dateFin) {
+            alert("Dates incorrectes !");
+            return;
+        }
+
+        if (materiels.size === 0) {
+            alert("Sélectionnez le matériel à emprunter !");
+            return;
+        }
+
+        const body = {
+            nom: nom,
+            description: description,
+            dateDebut: dateDebut,
+            dateFin: dateFin,
+            userId: store.currentUserId
+        }
+
+        const newPret = (await axios.post("http://localhost:3000/AjoutPret", body)).data.idPret;
+
+        materiels.forEach(async (materiel) => {
+            const idMateriel = materiel.id;
+            const body = {
+                idMateriel: idMateriel,
+                idPret: newPret
+            }
+            await axios.post("http://localhost:3000/AjoutPretMateriel", body);
+            await axios.post("http://localhost:3000/DecrementMateriel", body);
+        })
+         setShowToaster(true);
+        navigate("/");
+    };
 
     return (
         <div>
@@ -61,7 +107,7 @@ function Ticket() {
                     <div className="Ticket-form-list-materiel-selected">
                         {materielSelected.map((materiel)=><span>•{materiel.nom}</span>)}
                     </div>
-                    <button onClick={submitForm} className="ButtonForm green Ticket-submit">Envoyer</button>
+                    <button onClick={sendTicket} className="ButtonForm green Ticket-submit">Envoyer</button>
                 </div>
                 <div className="Ticket-form-section" ref={ref}>
                     <RechercheMateriel  setMaterielSelected={setMaterielSelected} materielSelected={materielSelected} listItems={listItems}/>
