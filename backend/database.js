@@ -17,7 +17,7 @@ export async function getUsers(){
 }
 
 export async function getTransaction(){
-    const request = await pool.query("SELECT pret.date_debut, pret.date_fin, utilisateur.nom,utilisateur.prenom,utilisateur.adresse_mail,materiel.nom from pretMateriel INNER JOIN materiel ON materiel.id = pretMateriel.materiel INNER JOIN pret on pret.id = pretMateriel.pret JOIN utilisateur ON utilisateur.id = pret.utilisateur");
+    const request = await pool.query("SELECT pretMateriel.id, pret.date_debut, pret.date_fin, utilisateur.nom,utilisateur.prenom,utilisateur.adresse_mail,materiel.nom from pretMateriel INNER JOIN materiel ON materiel.id = pretMateriel.materiel INNER JOIN pret on pret.id = pretMateriel.pret JOIN utilisateur ON utilisateur.id = pret.utilisateur");
     return request[0];
 }
 
@@ -42,5 +42,9 @@ export async function addUtilisateur(utilisateur){
 
 export async function addMateriel(materiel){ 
     const result = await pool.query(`INSERT INTO materiel (nom, categorie, prix, marque, quantite) VALUES ('${materiel.nom}', '${materiel.categorie}', ${materiel.prix}, '${materiel.marque}', ${materiel.quantite})`);
+    return result[0];
+}
+export async function deletePretMateriel(pret){
+    const result = await pool.query(`DELETE FROM pretMateriel WHERE id = '${pret.ID}'`);
     return result[0];
 }

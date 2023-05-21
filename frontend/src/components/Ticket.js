@@ -28,8 +28,10 @@ function Ticket() {
     ]);
 
     const submitForm = () =>{
+        console.log(materielSelected);
         setShowToaster(true);
     }
+    
 
 
     return (

@@ -16,9 +16,11 @@ const MenuUser = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          let Transaction =(await axios.get("http://localhost:4000/getTransaction")).data
-          Transaction = Transaction.filter(transaction => transaction.adresse_mail === state.currentUserName);
-          Transaction = Transaction.map(({ date_debut,date_fin,nom }) => ({
+          const Transaction =(await axios.get("http://localhost:4000/getTransaction")).data
+          console.log(Transaction);
+          const TransactionFiltréMail = Transaction.filter(transaction => transaction.adresse_mail === state.currentUserName);
+          console.log(TransactionFiltréMail);
+          const TransactionFiltréFinal = TransactionFiltréMail.map(({ date_debut,date_fin,nom }) => ({
             date_debut: date_debut,
             date_fin: date_fin,
             nom: nom
@@ -28,7 +30,7 @@ const MenuUser = () => {
               id: 0,
               title: 'Historique transactions',
               isActive: true,
-              data: Transaction,
+              data: TransactionFiltréFinal,
               columnDefs: rowTransactionsUsers,
             },
           ];

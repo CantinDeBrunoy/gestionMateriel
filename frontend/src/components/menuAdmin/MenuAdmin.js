@@ -29,16 +29,19 @@ const MenuAdmin = () => {
             famille:marque
           }));
           const Transaction =(await axios.get("http://localhost:4000/getTransaction")).data
-          for (let i =0; i<Transaction.lenght;i++){
-            Transaction.date_Debut = Transaction.date_Debut.split("T")[0];
-            console.log(Transaction.date_Debut);
-          }
+          console.log(Transaction);
+          const TransactionFiltré = Transaction.map(({ date_debut,date_fin,nom,adresse_mail }) => ({
+            date_debut: date_debut,
+            date_fin: date_fin,
+            nom: nom,
+            prenom:adresse_mail
+          }));
           const updatedActivePage = [
             {
               id: 0,
               title: 'Historique transactions',
               isActive: true,
-              data: Transaction,
+              data: TransactionFiltré,
               columnDefs: rowTransactions,
             },
             {
