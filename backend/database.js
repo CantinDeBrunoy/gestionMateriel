@@ -43,3 +43,13 @@ export async function addPretMateriel(pretMateriel) {
     [pretMateriel.idMateriel, pretMateriel.idPret]);
     return result[0].insertId;
 }
+
+export async function decrementMateriel(idMateriel) {
+    const result = await pool.query(`UPDATE materiel SET quantite = quantite - 1 WHERE id = ?`,[idMateriel]);
+    return result[0];
+}
+
+export async function incrementMateriel(idMateriel) {
+    const result = await pool.query(`UPDATE materiel SET quantite = quantite + 1 WHERE id = ?`,[idMateriel]);
+    return result[0];
+}

@@ -12,7 +12,9 @@ const  MaterielCard = ({card}) => {
     });
 
     const selectMateriel = function() {
-
+      if (card.quantite === 0) {
+        return;
+      } 
       const updatedSet = state.selectedMaterials;
       if (myState.set.has(card)) {
         updatedSet.delete(card);
@@ -21,7 +23,6 @@ const  MaterielCard = ({card}) => {
       }
       state.selectedMaterials = updatedSet;
       setMyState({ set: updatedSet });
-
     }
 
     return (

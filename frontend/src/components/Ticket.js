@@ -57,6 +57,7 @@ function Ticket() {
                 idPret: newPret
             }
             await axios.post("http://localhost:3000/AjoutPretMateriel", body);
+            await axios.post("http://localhost:3000/DecrementMateriel", body);
         })
         alert("Ticket créé !");
         navigate("/");
