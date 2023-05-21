@@ -59,6 +59,16 @@ export const rowUsers = [
         },
      },
      { 
+         headerName: 'Nom',
+         field: 'nom',
+         filter: 'agTextColumnFilter',
+         filterParams: TextFilterParams,
+         sortable: true,
+         cellRenderer: (params) => {
+         return (params.value ? formatCellRenderer(params) : '')
+         },
+      },
+     { 
         headerName: 'E-Mail',
         field: 'mail',
         filter: 'agTextColumnFilter',

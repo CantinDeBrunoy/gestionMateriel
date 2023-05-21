@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel} from "./database.js";
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction} from "./database.js";
 
 
 const app = express();
