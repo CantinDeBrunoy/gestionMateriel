@@ -1,0 +1,17 @@
+.BoutonUtilisateur{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.BoutonUtilisateur>button{
+    text-decoration: none;
+    border: none;
+    padding: 5px;
+    color: white;
+}
+
+.BoutonUtilisateur>button:hover{
+    cursor: pointer;
+    background-color: #55b155;
+}

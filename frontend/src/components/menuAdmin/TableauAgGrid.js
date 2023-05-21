@@ -7,6 +7,9 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 
 import { localText } from '../../assets/constantes/localText';
 import { defaultColDef } from '../../assets/constantes/rowDefs';
+import Button from './ButtonHistorique';
+import BoutonUtilisateur from './BoutonUtilisateur';
+// import BoutonDeleteUtilisateur from './BoutonDeleteUtilisateur';
 
 const  TableauAgGrid = ({page}) => {
     
@@ -39,6 +42,11 @@ const  TableauAgGrid = ({page}) => {
             columnDefs={page.columnDefs}
             localeText={localText}
             suppressHorizontalScroll={true}
+            frameworkComponents={{
+              btnCellRenderer:Button,
+              btnCellRendererUtilsateur:BoutonUtilisateur,
+              btnCellRendererDeleteUtilisateur:Button,
+            }}
             overlayLoadingTemplate={'<span class="ag-overlay-loading-center">Chargement des données...</span>'}
             overlayNoRowsTemplate={'<span class="ag-overlay-loading-center">Pas de données</span>'}
           ></AgGridReact>

@@ -55,6 +55,12 @@ export const rowTransactions =[
         return (params.value ? formatCellRenderer(params) : '')
         },
      },
+     { 
+      headerName: '',
+      type:'rightAligned',
+      suppressMenu: true,
+      cellRenderer:'btnCellRenderer',
+      },
 ]
 
 export const rowTransactionsUsers =[
@@ -141,6 +147,12 @@ export const rowUsers = [
         return (params.value ? formatCellRenderer(params) : '')
         },
      },
+     { 
+         headerName: '',
+         type:'rightAligned',
+         suppressMenu: true,
+         cellRenderer:'btnCellRendererUtilsateur',
+      },
 ]
 
 export const rowMateriel = [
