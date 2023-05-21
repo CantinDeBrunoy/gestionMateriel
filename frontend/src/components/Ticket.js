@@ -6,6 +6,12 @@ import Toaster from "./Toaster";
 
 function Ticket() {
     const [showToaster,setShowToaster] = useState(false);
+    const [infoToaster,setInfoToaster] = useState({
+        message:'Ticket envoyé',
+        setShowToaster,
+        type:'Success',
+        taille:'petit'
+      });
     const ref = React.useRef(null);
     const doClick = () => ref.current?.scrollIntoView({behavior: 'smooth'});
 
@@ -26,18 +32,18 @@ function Ticket() {
     return (
         <div>
             <div className="Ticket">
-                {showToaster && <Toaster message='Ticket envoyé' setShowToaster={setShowToaster} type='Success' taille='petit'/>}
+                {showToaster && <Toaster message={infoToaster.message} setShowToaster={infoToaster.setShowToaster} type={infoToaster.type} taille={infoToaster.taille}/>}
                 <h2>Réserver nos équipements</h2>
                 
                 <div className="Ticket-form">
                 <h3>Créer un ticket  </h3>
                 <div className="Ticket-form-section">
                     <span>Nom du ticket </span>
-                    <input type="text" placeholder="Nom du ticket"/>
+                    <input type="text" className="Ticket-InputText" placeholder="Nom du ticket"/>
                 </div>
                 <div className="Ticket-form-section">
                     <span>Description du ticket :</span>
-                    <textarea rows="5" cols="50"
+                    <textarea rows="5" cols="50" className="Ticket-InputText"
                         placeholder="Description du ticket (ce que vous souhaitez faire avec le matériel)"/>
                 </div>
                 <div className="Ticket-form-section Ticket-date">

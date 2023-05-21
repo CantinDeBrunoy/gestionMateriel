@@ -34,7 +34,9 @@
         transform: translate(-50%, -50%);
     }
     .Inscription-form {
-        background-color: #e3b6894f;
+        background-color: white;
+        padding: 1.2vw;
+        box-shadow: 0 2px 6px rgba(0,0,0,.16);
         border-radius: 20px;
         padding: 2rem 5rem;
     }

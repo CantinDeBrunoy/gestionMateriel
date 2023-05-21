@@ -1,13 +1,21 @@
 import "./Connexion.css";
 import axios from "axios";
 import { StoreContext } from "../store/store.js";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Toaster from "./Toaster";
 
 
 function Connexion() {
   const { state, dispatch } = useContext(StoreContext);
   const navigate = useNavigate();
+  const [showToaster,setShowToaster] = useState(false);
+  const [infoToaster,setInfoToaster] = useState({
+    message:'',
+    setShowToaster,
+    type:'Warning',
+    taille:'petit'
+  });
 
   const showState = function() {
     console.log("Connected ? "+state.connected);
@@ -20,7 +28,13 @@ function Connexion() {
     const mdp = document.getElementsByName("mdp")[0].value;
 
     if (!mdp || !email) {
-      alert("Entrez vos informations !")
+      setInfoToaster({
+        message:'Entrez vos informations !',
+        setShowToaster,
+        type:'Warning',
+        taille:'petit',
+      });
+      setShowToaster(true);
       return;
     }
 
@@ -34,11 +48,23 @@ function Connexion() {
       }
     })
     if (!userExists) {
-      alert("L'utilsateur n'existe pas !");
+      setInfoToaster({
+        message:'L utilsateur n existe pas !',
+        setShowToaster,
+        type:'Warning',
+        taille:'petit',
+      });
+      setShowToaster(true);
       return;
     }
     if (mdp !== correctUser.mot_de_passe) {
-      alert("Mot de passe incorrect");
+      setInfoToaster({
+        message:'Mot de passe incorrect',
+        setShowToaster,
+        type:'Warning',
+        taille:'petit',
+      });
+      setShowToaster(true);
       return;
     } 
     state.connected = true;
@@ -52,6 +78,7 @@ function Connexion() {
   }
   return (
     <div>
+      {showToaster && <Toaster message={infoToaster.message} setShowToaster={infoToaster.setShowToaster} type={infoToaster.type} taille={infoToaster.taille}/>}
         <div className="Connexion">
           <h2>Connexion au site</h2>
           <div className="Connexion-form">
