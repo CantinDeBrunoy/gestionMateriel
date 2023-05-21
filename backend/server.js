@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { getUsers ,getMateriels,addUtilisateur,addMateriel} from "./database.js";
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, getPretMateriel,getTransaction} from "./database.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -22,6 +22,21 @@ app.get("/getUtilisateurs",async(req,res)=> {
 app.get("/getMateriels",async(req,res)=> {
     const materiels = await getMateriels();
     res.send(materiels);
+})
+app.get("/getTransaction",async(req,res)=> {
+    const transaction = await getTransaction();
+    res.send(transaction);
+})
+//getPret
+app.get("/getPret",async(req,res)=> {
+    const prets = await getPret();
+    res.send(prets);
+})
+//getPretMateriel
+
+app.get("/getPretMateriel",async(req,res)=> {
+    const pretMateriel = await getPretMateriel();
+    res.send(pretMateriel);
 })
 
 //AjoutPersonne

@@ -3,6 +3,7 @@ import logo from "../assets/images/logo-tmp.png"
 import axios from "axios";
 import { useState } from "react";
 import Toaster from "./Toaster";
+import NavBar from '../components/navBar/NavBar'
 
 function Inscription() {
   const [showToaster,setShowToaster] = useState(false);
@@ -89,6 +90,7 @@ function Inscription() {
   return (
   <div>
     {showToaster && <Toaster message={infoToaster.message} setShowToaster={infoToaster.setShowToaster} type={infoToaster.type} taille={infoToaster.taille}/>}
+    <NavBar />
     <div className="Inscription">
       <div className="Inscription-form">
         <div className="Inscription-left">

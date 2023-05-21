@@ -10,13 +10,13 @@ const initialState = {
   connected: false,
   currentUserName: "",
   currentUserRole: "",
+  currentName:"",
+  currentForname:"",
 };
 
 // Définissez un réducteur pour gérer les actions et mettre à jour l'état du store
 const reducer = (state, action) => {
   switch (action.type) {
-    // Gérez les différentes actions ici
-
   }
 };
 
