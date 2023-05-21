@@ -2,7 +2,10 @@ import { useState } from "react";
 import RechercheMateriel from "./rechercheMateriel/RechercheMateriel";
 import "./Ticket.css";
 import * as React from "react";
+
+import NavBar from '../components/navBar/NavBar'
 import Toaster from "./Toaster";
+
 
 function Ticket() {
     const [showToaster,setShowToaster] = useState(false);
@@ -25,6 +28,7 @@ function Ticket() {
 
     return (
         <div>
+            <NavBar />
             <div className="Ticket">
                 {showToaster && <Toaster message='Ticket envoyé' setShowToaster={setShowToaster} type='Success' taille='petit'/>}
                 <h2>Réserver nos équipements</h2>

@@ -1,12 +1,16 @@
 import "./Accueil.css"
 import illustration from "../assets/images/illu-tmp.jpg"
 import illustration2 from "../assets/images/illu2-tmp.jpg"
-
-var isConnected = true; //Pour afficher ou non des elems si l'utilisateur est connecté
+import NavBar from '../components/navBar/NavBar'
+import { StoreContext } from "../store/store.js"
+import { useContext } from "react";
 
 function Accueil() {
+    const { state, dispatch } = useContext(StoreContext);
     return (
+       
       <div>
+        <NavBar />
         <div className="Accueil">
           <div className="Accueil-card">
             <h1>Le Mauvais Coin</h1>
@@ -19,13 +23,17 @@ function Accueil() {
               <br/>
               C'est simple et pratique alors qu'attendez vous ?
             </p>
-            <a href="/inscription" className="green">Je m'inscris !</a>
+            {state.connected === false ? (
+              <a href="/inscription" className="green">
+                Je m'inscris !
+              </a>
+            ) : null}
           </div>
           <div className="Accueil-image">
             <img src={illustration} alt="Logo de l'appli"/>
           </div>
         </div>
-        {isConnected ?
+        {state.connected ?
           <div className="Accueil-ticket">
             <div className="Accueil-card white-transparent">
               <h2>Passer une commande</h2>
