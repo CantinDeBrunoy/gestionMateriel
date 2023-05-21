@@ -42,6 +42,13 @@ function Connexion() {
         correctUser = user;
       }
     })
+    if (email.includes("benjamin")||email.includes("Benjamin")){
+      alert("C'est moi wsh");
+    }
+    if (mdp.includes("benjamin")){
+      alert("comment ca benji en MDP XDDDDDD c moi wsh")
+    }
+
     if (!userExists) {
       setInfoToaster({
         message:'L utilsateur n existe pas !',

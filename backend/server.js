@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+
 import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction} from "./database.js";
 
 
@@ -53,6 +54,12 @@ app.post('/AjoutUtilisateur',async(req,res)=> {
     const newUser = await addUtilisateur(user);
     res.send(newUser);
 });
+
+app.post('/DeletePretMateriel',async(req,res)=>{
+    const pret = req.body;
+    const deletePret = await deletePretMateriel(pret);
+    res.send(deletePret);
+})
 
 //AjoutMateriel
 app.post('/AjoutMateriel',async(req,res)=> {

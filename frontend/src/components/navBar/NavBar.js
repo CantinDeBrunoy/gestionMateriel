@@ -20,6 +20,9 @@ function NavBar() {
   const navigateToMenuAdmin = () => {
     navigate('/MenuAdmin');
   };
+  const navigateToMenuUser = () => {
+    navigate('/MenuUser');
+  };
 
 
   console.log("state connected",state.connected,state.currentName,state.currentForname);
@@ -35,6 +38,7 @@ function NavBar() {
           <a href ="/Connexion">Se déconnecter</a>
           <a onClick={navigateToRechercheMateriel}>Recherche Materiel</a>
           <a onClick={navigateToTicket}>Créer Ticket</a>
+          <a onClick={navigateToMenuUser}>Voir Pret</a>
         </div>
         <div className="NavBar-dropdown">
           <img src={profilePicture} alt="Logo profil" onClick={showDropdown} />
@@ -44,6 +48,7 @@ function NavBar() {
               <a href ="/Connexion">Se déconnecter</a>
               <a onClick={navigateToRechercheMateriel}>Recherche Materiel</a>
               <a onClick={navigateToTicket}>Créer Ticket</a>
+              <a onClick={navigateToMenuUser}>Voir Pret</a>
 
             </div>
           ) : null}

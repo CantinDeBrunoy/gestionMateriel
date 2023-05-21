@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import './TableauAgGrid.css'
@@ -57,4 +56,3 @@ const  TableauAgGrid = ({page}) => {
   }
   
   export default TableauAgGrid;
-  

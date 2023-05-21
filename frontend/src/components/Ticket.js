@@ -41,6 +41,12 @@ function Ticket() {
         const dateFin = document.getElementById("date-fin").value;
         const materiels = materielSelected;
 
+
+    const submitForm = () =>{
+        console.log(materielSelected);
+        setShowToaster(true);
+    }
+    
         if (!nom || !description || !dateDebut || !dateFin) {
             alert("Remplissez le formulare !");
             return;
@@ -55,6 +61,7 @@ function Ticket() {
             alert("Sélectionnez le matériel à emprunter !");
             return;
         }
+
 
         const body = {
             nom: nom,
