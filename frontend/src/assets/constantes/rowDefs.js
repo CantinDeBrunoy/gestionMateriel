@@ -26,7 +26,7 @@ export const rowTransactions =[
         },
      },
      { 
-        headerName: 'Object',
+        headerName: 'Nom Ticket',
         field: 'nom',
         filter: 'agTextColumnFilter',
         filterParams: TextFilterParams,
@@ -36,8 +36,18 @@ export const rowTransactions =[
         },
      },
      { 
-        headerName: 'Personne',
-        field: 'prenom',
+      headerName: 'Description',
+      field: 'description',
+      filter: 'agTextColumnFilter',
+      filterParams: TextFilterParams,
+      sortable: true,
+      cellRenderer: (params) => {
+      return (params.value ? formatCellRenderer(params) : '')
+      },
+   },
+     { 
+        headerName: 'Utilisateur',
+        field: 'adresse_mail',
         filter: 'agTextColumnFilter',
         filterParams: TextFilterParams,
         sortable: true,
@@ -49,35 +59,45 @@ export const rowTransactions =[
 
 export const rowTransactionsUsers =[
    { 
-       headerName: 'Date de début',
-       field: 'date_debut',
-       filter: 'agDateColumnFilter',
-       filterParams: DateFilterParams,
-       sortable: true,
-       cellRenderer: (params) => {
-       return (params.value ? formatCellRenderer(params) : '')
-       },
+      headerName: 'Date de début',
+      field: 'date_debut',
+      filter: 'agDateColumnFilter',
+      filterParams: DateFilterParams,
+      sortable: true,
+      cellRenderer: (params) => {
+      return (params.value ? formatCellRenderer(params) : '')
+      },
+   },
+   { 
+      headerName: 'Date de fin',
+      field: 'date_fin',
+      filter: 'agDateColumnFilter',
+      filterParams: DateFilterParams,
+      sortable: true,
+      cellRenderer: (params) => {
+      return (params.value ? formatCellRenderer(params) : '')
+      },
+   },
+   { 
+      headerName: 'Nom Ticket',
+      field: 'nom',
+      filter: 'agTextColumnFilter',
+      filterParams: TextFilterParams,
+      sortable: true,
+      cellRenderer: (params) => {
+      return (params.value ? formatCellRenderer(params) : '')
+      },
+   },
+   { 
+    headerName: 'Description',
+    field: 'description',
+    filter: 'agTextColumnFilter',
+    filterParams: TextFilterParams,
+    sortable: true,
+    cellRenderer: (params) => {
+    return (params.value ? formatCellRenderer(params) : '')
     },
-    { 
-       headerName: 'Date de fin',
-       field: 'date_fin',
-       filter: 'agDateColumnFilter',
-       filterParams: DateFilterParams,
-       sortable: true,
-       cellRenderer: (params) => {
-       return (params.value ? formatCellRenderer(params) : '')
-       },
-    },
-    { 
-       headerName: 'Object',
-       field: 'nom',
-       filter: 'agTextColumnFilter',
-       filterParams: TextFilterParams,
-       sortable: true,
-       cellRenderer: (params) => {
-       return (params.value ? formatCellRenderer(params) : '')
-       },
-    },
+ },
 ]
 
 export const rowUsers = [

@@ -29,13 +29,14 @@ const MenuAdmin = () => {
             stock: quantite,
             famille:marque
           }));
-          const Transaction =(await axios.get("http://localhost:4000/getTransaction")).data
+          const Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
           console.log(Transaction);
-          const TransactionFiltré = Transaction.map(({ date_debut,date_fin,nom,adresse_mail }) => ({
+          const TransactionFiltré = Transaction.map(({ date_debut,date_fin,nom,description,adresse_mail}) => ({
             date_debut: date_debut,
             date_fin: date_fin,
             nom: nom,
-            prenom:adresse_mail
+            description : description,
+            adresse_mail:adresse_mail
           }));
           const updatedActivePage = [
             {

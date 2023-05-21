@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction} from "./database.js";
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket} from "./database.js";
 
 
 const app = express();
@@ -27,6 +27,10 @@ app.get("/getMateriels",async(req,res)=> {
 })
 app.get("/getTransaction",async(req,res)=> {
     const transaction = await getTransaction();
+    res.send(transaction);
+})
+app.get("/getPretTicket",async(req,res)=> {
+    const transaction = await getPretTicket();
     res.send(transaction);
 })
 //getPret

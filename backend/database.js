@@ -33,6 +33,10 @@ export async function getPretMateriel(){
     const request = await pool.query("SELECT * from pretMateriel");
     return request[0];
 }
+export async function getPretTicket(){
+    const request = await pool.query("SELECT pret.date_debut, pret.date_fin, utilisateur.nom, utilisateur.adresse_mail, pret.nom, pret.description FROM pret INNER JOIN utilisateur ON pret.utilisateur = utilisateur.id;");
+    return request[0];
+}
 
 
 export async function addUtilisateur(utilisateur){ 
@@ -47,6 +51,7 @@ export async function addMateriel(materiel){
 
 export async function deletePretMateriel(pret){
     const result = await pool.query(`DELETE FROM pretMateriel WHERE id = '${pret.ID}'`);
+}
 
 export async function addPret(pret) {
     const result = await pool.query(`INSERT INTO pret (date_debut, date_fin, utilisateur, nom, description) VALUES (?, ?, ?, ?, ?)`,

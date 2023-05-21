@@ -16,14 +16,15 @@ const MenuUser = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const Transaction =(await axios.get("http://localhost:4000/getTransaction")).data
+          const Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
           console.log(Transaction);
           const TransactionFiltréMail = Transaction.filter(transaction => transaction.adresse_mail === state.currentUserName);
           console.log(TransactionFiltréMail);
-          const TransactionFiltréFinal = TransactionFiltréMail.map(({ date_debut,date_fin,nom }) => ({
+          const TransactionFiltréFinal = TransactionFiltréMail.map(({ date_debut,date_fin,nom,description }) => ({
             date_debut: date_debut,
             date_fin: date_fin,
-            nom: nom
+            nom: nom,
+            description : description
           }));
           const updatedActivePage = [
             {
