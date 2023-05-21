@@ -20,7 +20,8 @@ const MenuUser = () => {
           console.log(Transaction);
           const TransactionFiltréMail = Transaction.filter(transaction => transaction.adresse_mail === state.currentUserName);
           console.log(TransactionFiltréMail);
-          const TransactionFiltréFinal = TransactionFiltréMail.map(({ date_debut,date_fin,nom,description }) => ({
+          const TransactionFiltréFinal = TransactionFiltréMail.map(({ id,date_debut,date_fin,nom,description }) => ({
+            id: id,
             date_debut: date_debut,
             date_fin: date_fin,
             nom: nom,

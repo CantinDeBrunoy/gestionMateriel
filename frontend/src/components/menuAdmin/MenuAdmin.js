@@ -32,8 +32,8 @@ const MenuAdmin = () => {
           }));
           const Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
           console.log(Transaction);
-          const TransactionFiltré = Transaction.map(({ id,date_debut,date_fin,nom,description,adresse_mail}) => ({
-            id  : id,
+          const TransactionFiltré = Transaction.map(({id,date_debut,date_fin,nom,description,adresse_mail}) => ({
+            id: id,
             date_debut: date_debut,
             date_fin: date_fin,
             nom: nom,

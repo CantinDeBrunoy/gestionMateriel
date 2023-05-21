@@ -24,6 +24,7 @@ const  TableauAgGrid = ({page}) => {
   };
 
   const sizeToFit = () => gridRef.current.api.sizeColumnsToFit();
+  console.log(page.data);
 
     return (
       <div className="TableauAgGrid">
