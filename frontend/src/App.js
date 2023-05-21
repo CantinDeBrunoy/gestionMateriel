@@ -10,7 +10,6 @@ import RechercheMateriel from './components/rechercheMateriel/RechercheMateriel'
 import MenuAdmin from './components/menuAdmin/MenuAdmin';
 import { createContext } from 'react';
 import { StoreProvider } from "./store/store.js";
-import NavBar from './components/navBar/NavBar';
 
 const MyContext = createContext();
 

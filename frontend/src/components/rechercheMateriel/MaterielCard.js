@@ -2,7 +2,7 @@ import "./MaterielCard.css";
 
 const  MaterielCard = ({card}) => {
     return (
-      <div className={classNames} onClick={selectMateriel}>
+      <div className="MaterielCard">
         <div>
           <h1 className="MaterielCard-title">
           {card.nom}

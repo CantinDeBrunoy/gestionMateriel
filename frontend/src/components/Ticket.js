@@ -34,6 +34,7 @@ function Ticket() {
     const [mySet, setMySet] = useState(state.selectedMaterials);
     
     const sendTicket = async function() {
+   
         const nom = document.getElementById("ticket-nom").value;
         const description = document.getElementById("ticket-description").value;
         const dateDebut = document.getElementById("date-debut").value;
@@ -50,7 +51,7 @@ function Ticket() {
             return;
         }
 
-        if (materiels.size === 0) {
+        if (materiels.length===0) {
             alert("Sélectionnez le matériel à emprunter !");
             return;
         }
@@ -60,10 +61,10 @@ function Ticket() {
             description: description,
             dateDebut: dateDebut,
             dateFin: dateFin,
-            userId: store.currentUserId
+            userId: state.currentUserId
         }
 
-        const newPret = (await axios.post("http://localhost:3000/AjoutPret", body)).data.idPret;
+        const newPret = (await axios.post("http://localhost:4000/AjoutPret", body)).data.idPret;
 
         materiels.forEach(async (materiel) => {
             const idMateriel = materiel.id;
@@ -71,11 +72,13 @@ function Ticket() {
                 idMateriel: idMateriel,
                 idPret: newPret
             }
-            await axios.post("http://localhost:3000/AjoutPretMateriel", body);
-            await axios.post("http://localhost:3000/DecrementMateriel", body);
+            await axios.post("http://localhost:4000/AjoutPretMateriel", body);
         })
-         setShowToaster(true);
-        navigate("/");
+        
+        setShowToaster(true);
+        setTimeout(() => {
+            navigate("/");
+        }, 3000);
     };
 
     return (
@@ -89,19 +92,19 @@ function Ticket() {
                 <h3>Créer un ticket  </h3>
                 <div className="Ticket-form-section">
                     <span>Nom du ticket </span>
-                    <input type="text" className="Ticket-InputText" placeholder="Nom du ticket"/>
+                    <input type="text" id="ticket-nom" className="Ticket-InputText" placeholder="Nom du ticket"/>
                 </div>
                 <div className="Ticket-form-section">
                     <span>Description du ticket :</span>
-                    <textarea rows="5" cols="50" className="Ticket-InputText"
+                    <textarea rows="5" cols="50" id="ticket-description" className="Ticket-InputText"
                         placeholder="Description du ticket (ce que vous souhaitez faire avec le matériel)"/>
                 </div>
                 <div className="Ticket-form-section Ticket-date">
                     <span>De  </span>
-                    <input type="date" min={actualDate}/>
+                    <input type="date" id="date-debut" min={actualDate}/>
                     <br/>
                     <span>A  </span>
-                    <input type="date" min={actualDate}/>
+                    <input type="date" id="date-fin" min={actualDate}/>
                 </div>
                     <button onClick={doClick} className="Ticket-show-materiel green">Choisir ce que j'emprunte</button>
                     <div className="Ticket-form-list-materiel-selected">
@@ -110,7 +113,7 @@ function Ticket() {
                     <button onClick={sendTicket} className="ButtonForm green Ticket-submit">Envoyer</button>
                 </div>
                 <div className="Ticket-form-section" ref={ref}>
-                    <RechercheMateriel  setMaterielSelected={setMaterielSelected} materielSelected={materielSelected} listItems={listItems}/>
+                    <RechercheMateriel  setMaterielSelected={setMaterielSelected} materielSelected={materielSelected} />
                 </div>
             </div>
         </div>

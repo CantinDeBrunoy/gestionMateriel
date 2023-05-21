@@ -46,7 +46,7 @@ function Inscription() {
       return;
     }
 
-    const existingUsers = (await axios.get("http://127.0.0.1:3000/getUtilisateurs")).data;
+    const existingUsers = (await axios.get("http://127.0.0.1:4000/getUtilisateurs")).data;
     for (let i in existingUsers) {
       if (existingUsers[i].adresse_mail === mail) {
         setInfoToaster({
@@ -79,7 +79,7 @@ function Inscription() {
       role: "utilisateur"
     };
 
-    await axios.post("http://127.0.0.1:3000/AjoutUtilisateur", body);
+    await axios.post("http://127.0.0.1:4000/AjoutUtilisateur", body);
     setInfoToaster({
       message:'Utilisateur créé !',
       setShowToaster,
@@ -87,6 +87,9 @@ function Inscription() {
       taille:'petit',
     });
     setShowToaster(true);
+    setTimeout(() => {
+      navigate("/Connexion");
+    }, 3000);
   }
   return (
   <div>

@@ -81,12 +81,8 @@ app.post('/AjoutPret', async (req, res) => {
 app.post('/AjoutPretMateriel', async (req, res) => {
     const pretMateriel = req.body;
     await addPretMateriel(pretMateriel);
+    await decrementMateriel(pretMateriel.idMateriel)
     res.send(201);
-})
-
-app.post('/DecrementMateriel', async (req, res) => {
-    const idMateriel = req.body.idMateriel;
-    await decrementMateriel(idMateriel);
 })
 
 app.post('/IncrementMateriel', async (req, res) => {
