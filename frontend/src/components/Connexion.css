@@ -61,8 +61,9 @@
         transform: translate(-50%, -50%);
     }
     .Connexion-form {
-        background-color: #e3b6894f;
         border-radius: 20px;
         padding: 2rem 5rem;
+        background-color: white;
+        box-shadow: 0 2px 6px rgba(0,0,0,.16);
     }
 }

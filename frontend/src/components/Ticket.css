@@ -82,3 +82,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.Ticket-InputText{
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
