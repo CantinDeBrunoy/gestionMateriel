@@ -1,0 +1,74 @@
+.PopUp {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: white;
+    margin: 0em 1em 0em 1em;
+    border: 1px solid #E5E5E5;
+    border-radius: 0.3em;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+    animation: PopUp 5.5s ease forwards;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.petit {
+    width: 250px;
+    height: 80px;
+}
+
+.grand {
+    width: 500px;
+    height: 160px;
+}
+
+@keyframes PopUp {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+
+    20% {
+        top: 30px;
+        opacity: 1;
+    }
+
+    95% {
+        top: 30px;
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.PopUp span {
+    margin-left: 1em;
+}
+
+.ToasterSuccess {
+    background-color: #5cb85c;
+}
+
+.ToasterDanger {
+    background-color: #d9534f;
+}
+
+.ToasterWarning {
+    background-color: #f0ad4e;
+}
+
+.ToasterInfo {
+    background-color: #5bc0de;
+}
