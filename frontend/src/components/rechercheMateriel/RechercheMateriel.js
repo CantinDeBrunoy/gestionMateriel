@@ -34,20 +34,17 @@ const RechercheMateriel = ({setMaterielSelected,materielSelected}) => {
 
   return (
     <div className="rechercheMateriel">
-  <div className="rechercheMateriel-div-header dark-blue">
-      <span>Filtre 1</span>
-      <span>Filtre 2</span>
-      <div className="rechercheMateriel-div-input">
-      <input  onChange={setNewValueFiltered} placeholder="Je cherche un matériel, un objet..."/>
-      <button className="rechercheMateriel-div-button">
-      <img src={search} />
-      </button>
-      </div>
-      
-  </div>
-  <div className="rechercheMateriel-listItems">
-  {valueFiltered && valueFiltered.map((obj)=><div key={obj.nom} onClick={() =>addMaterielToList(obj)}><MaterielCard  key={obj.nom} card={obj.nom} /></div>)}
-  </div>
+        <div className="rechercheMateriel-div-header dark-blue">
+          <div className="rechercheMateriel-div-input">
+            <input  onChange={setNewValueFiltered} placeholder="Je cherche un matériel, un objet..."/>
+            <button className="rechercheMateriel-div-button">
+            <img src={search} />
+            </button>
+        </div> 
+    </div>
+    <div className="rechercheMateriel-listItems">
+        {valueFiltered && valueFiltered.map((obj)=><div key={obj.nom} onClick={() =>addMaterielToList(obj)}><MaterielCard  key={obj.nom} card={obj} /></div>)}
+    </div>
   </div>
   );
 };

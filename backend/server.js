@@ -1,7 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { getUsers ,getMateriels,addUtilisateur,addMateriel, getPretMateriel,getTransaction,deletePretMateriel} from "./database.js";
+
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction} from "./database.js";
+
 
 const app = express();
 const port = process.env.PORT;
@@ -73,6 +75,26 @@ app.post('/AjoutMateriel',async(req,res)=> {
     res.send(materiel);
 });
 
+//AjoutPret
+app.post('/AjoutPret', async (req, res) => {
+    const pret = req.body;
+    const newPret = await addPret(pret);
+    const response = {
+        idPret: newPret
+    }
+    res.send(response);
+})
 
+app.post('/AjoutPretMateriel', async (req, res) => {
+    const pretMateriel = req.body;
+    await addPretMateriel(pretMateriel);
+    await decrementMateriel(pretMateriel.idMateriel)
+    res.send(201);
+})
+
+app.post('/IncrementMateriel', async (req, res) => {
+    const idMateriel = req.body.idMateriel;
+    await incrementMateriel(idMateriel);
+})
 
 app.listen(port,()=> console.log(`app is running on port ${port} :D`));

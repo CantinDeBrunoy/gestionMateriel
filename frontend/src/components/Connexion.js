@@ -17,12 +17,6 @@ function Connexion() {
     taille:'petit'
   });
 
-  const showState = function() {
-    console.log("Connected ? "+state.connected);
-    console.log("User : "+state.currentUserName);
-    console.log("Role : "+state.currentUserRole)
-  }
-
   const verifierUser = async function() {
     const email = document.getElementsByName("mail")[0].value;
     const mdp = document.getElementsByName("mdp")[0].value;
@@ -54,6 +48,7 @@ function Connexion() {
     if (mdp.includes("benjamin")){
       alert("comment ca benji en MDP XDDDDDD c moi wsh")
     }
+
     if (!userExists) {
       setInfoToaster({
         message:'L utilsateur n existe pas !',
@@ -77,12 +72,12 @@ function Connexion() {
     state.connected = true;
     state.currentUserName = correctUser.adresse_mail;
     state.currentUserRole = correctUser.role;
+    state.currentUserId = correctUser.id;
     state.currentName = correctUser.nom;
     state.currentForname = correctUser.prenom;
 
-    if (state.connected) {
-      navigate("/");
-    }    
+    navigate("/");
+    
 
   }
   return (
