@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket} from "./database.js";
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket,changeStatus,deletePretMateriel} from "./database.js";
 
 
 const app = express();
@@ -99,6 +99,10 @@ app.post('/AjoutPretMateriel', async (req, res) => {
 app.post('/IncrementMateriel', async (req, res) => {
     const idMateriel = req.body.idMateriel;
     await incrementMateriel(idMateriel);
+})
+app.post('/changeStatus', async (req, res) => {
+    const role = req.body;
+    await changeStatus(role);
 })
 
 app.listen(port,()=> console.log(`app is running on port ${port} :D`));

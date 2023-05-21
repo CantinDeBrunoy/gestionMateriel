@@ -45,7 +45,6 @@ const  TableauAgGrid = ({page}) => {
             frameworkComponents={{
               btnCellRenderer:Button,
               btnCellRendererUtilsateur:BoutonUtilisateur,
-              btnCellRendererDeleteUtilisateur:Button,
             }}
             overlayLoadingTemplate={'<span class="ag-overlay-loading-center">Chargement des données...</span>'}
             overlayNoRowsTemplate={'<span class="ag-overlay-loading-center">Pas de données</span>'}

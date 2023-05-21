@@ -34,7 +34,7 @@ export async function getPretMateriel(){
     return request[0];
 }
 export async function getPretTicket(){
-    const request = await pool.query("SELECT pret.date_debut, pret.date_fin, utilisateur.nom, utilisateur.adresse_mail, pret.nom, pret.description FROM pret INNER JOIN utilisateur ON pret.utilisateur = utilisateur.id;");
+    const request = await pool.query("SELECT pret.id, pret.date_debut, pret.date_fin, utilisateur.nom, utilisateur.adresse_mail, pret.nom, pret.description FROM pret INNER JOIN utilisateur ON pret.utilisateur = utilisateur.id;");
     return request[0];
 }
 
@@ -50,7 +50,7 @@ export async function addMateriel(materiel){
 }
 
 export async function deletePretMateriel(pret){
-    const result = await pool.query(`DELETE FROM pretMateriel WHERE id = '${pret.ID}'`);
+    const result = await pool.query(`DELETE FROM pret WHERE id = ?`,[pret.id]);
 }
 
 export async function addPret(pret) {
@@ -72,5 +72,10 @@ export async function decrementMateriel(idMateriel) {
 
 export async function incrementMateriel(idMateriel) {
     const result = await pool.query(`UPDATE materiel SET quantite = quantite + 1 WHERE id = ?`,[idMateriel]);
+    return result[0];
+}
+
+export async function changeStatus(Status) {
+    const result = await pool.query(`UPDATE utilisateur SET role = ? WHERE id = ?`,[Status.role,Status.id]);
     return result[0];
 }

@@ -15,11 +15,12 @@ const MenuAdmin = () => {
       const fetchData = async () => {
         try {
           const utilisateur = (await axios.get("http://localhost:4000/getUtilisateurs")).data;
-          const utilisateursFiltres = utilisateur.map(({ prenom, nom, adresse_mail, role }) => ({
+          const utilisateursFiltres = utilisateur.map(({ id,prenom, nom, adresse_mail, role}) => ({
+            id : id,
             prenom: prenom,
             nom: nom,
             mail: adresse_mail,
-            role: role
+            role: role,
           }));
   
           const materiel = (await axios.get("http://localhost:4000/getMateriels")).data;
@@ -31,7 +32,8 @@ const MenuAdmin = () => {
           }));
           const Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
           console.log(Transaction);
-          const TransactionFiltré = Transaction.map(({ date_debut,date_fin,nom,description,adresse_mail}) => ({
+          const TransactionFiltré = Transaction.map(({ id,date_debut,date_fin,nom,description,adresse_mail}) => ({
+            id  : id,
             date_debut: date_debut,
             date_fin: date_fin,
             nom: nom,

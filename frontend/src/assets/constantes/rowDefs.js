@@ -5,6 +5,16 @@ export const defaultColDef = {
  };
 
 export const rowTransactions =[
+   { 
+      headerName: 'ID',
+      field: 'id',
+      filter: 'agNumberColumnFilter',
+      filterParams: NumberFilterParams,
+      sortable: true,
+      cellRenderer: (params) => {
+      return (params.value ? formatCellRenderer(params) : '')
+      },
+   },
     { 
         headerName: 'Date de début',
         field: 'date_debut',
@@ -65,6 +75,16 @@ export const rowTransactions =[
 
 export const rowTransactionsUsers =[
    { 
+      headerName: 'ID',
+      field: 'id',
+      filter: 'agNumberColumnFilter',
+      filterParams: NumberFilterParams,
+      sortable: true,
+      cellRenderer: (params) => {
+      return (params.value ? formatCellRenderer(params) : '')
+      },
+   },
+   { 
       headerName: 'Date de début',
       field: 'date_debut',
       filter: 'agDateColumnFilter',
@@ -107,6 +127,16 @@ export const rowTransactionsUsers =[
 ]
 
 export const rowUsers = [
+   { 
+      headerName: 'ID',
+      field: 'id',
+      filter: 'agNumberColumnFilter',
+      filterParams: NumberFilterParams,
+      sortable: true,
+      cellRenderer: (params) => {
+      return (params.value ? formatCellRenderer(params) : '')
+      },
+   },
     { 
         headerName: 'Prenom',
         field: 'prenom',
