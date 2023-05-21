@@ -1,7 +1,7 @@
 import "./MaterielCard.css"
 
 const  MaterielCard = ({card}) => {
-    console.log(card);
+   const quantite = 5;
 
     return (
       <div className="MaterielCard ">

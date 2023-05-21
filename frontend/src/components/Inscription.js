@@ -5,7 +5,7 @@ import NavBar from '../components/navBar/NavBar'
 
 function Inscription() {
   const afficherMdp = function(e) {
-    console.log(e.target.checked)
+    // console.log(e.target.checked)
     const mdp = document.getElementsByName("mdp")[0];
     const confirmMdp = document.getElementsByName("confirm_mdp")[0]; 
     if (e.target.checked) {

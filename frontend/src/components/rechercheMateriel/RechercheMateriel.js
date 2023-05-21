@@ -6,7 +6,7 @@ import axios from "axios";
 import NavBar from '../navBar/NavBar';
 
 
-const RechercheMateriel = () => {
+const RechercheMateriel = ({setMaterielSelected,materielSelected}) => {
     const [listItems,setListItems] = useState([]);
     const [valueFiltered,setValueFiltered] = useState([]);
 
@@ -28,6 +28,10 @@ const RechercheMateriel = () => {
         setValueFiltered(filteredList);
     }
 
+    const addMaterielToList = (materiel) =>{
+        setMaterielSelected([...materielSelected, materiel]);
+    }
+
   return (
     <div className="rechercheMateriel">
   <div className="rechercheMateriel-div-header dark-blue">
@@ -42,7 +46,7 @@ const RechercheMateriel = () => {
       
   </div>
   <div className="rechercheMateriel-listItems">
-  {valueFiltered && valueFiltered.map((obj)=><MaterielCard key={obj.nom} card={obj.nom} />)}
+  {valueFiltered && valueFiltered.map((obj)=><div key={obj.nom} onClick={() =>addMaterielToList(obj)}><MaterielCard  key={obj.nom} card={obj.nom} /></div>)}
   </div>
   </div>
   );
