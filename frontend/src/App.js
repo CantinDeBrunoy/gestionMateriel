@@ -11,6 +11,7 @@ import MenuAdmin from './components/menuAdmin/MenuAdmin';
 import { createContext } from 'react';
 import { StoreProvider } from "./store/store.js";
 import NavBar from './components/navBar/NavBar';
+import MenuUser from './components/menuAdmin/MenuUser';
 
 const MyContext = createContext();
 
@@ -39,6 +40,10 @@ function App() {
     {
       path:"/menuAdmin",
       element:<MenuAdmin/>
+    },
+    {
+      path:"/menuUser",
+      element :<MenuUser/>
     }
   ])
   return (

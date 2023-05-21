@@ -48,7 +48,7 @@ function Connexion() {
         correctUser = user;
       }
     })
-    if (email.includes("benjamin")){
+    if (email.includes("benjamin")||email.includes("Benjamin")){
       alert("C'est moi wsh");
     }
     if (mdp.includes("benjamin")){

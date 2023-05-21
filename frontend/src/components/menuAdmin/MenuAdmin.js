@@ -1,6 +1,6 @@
 import "./MenuAdmin.css"
 import {useEffect, useState } from "react";
-import TableauAgGrid from "./TableauAgGrid.js";
+import TableauAgGrid from "./TableauAgGrid.js.js";
 import { rowMateriel, rowTransactions, rowUsers } from "../../assets/constantes/rowDefs";
 import Statistiques from "./Statistiques";
 import NavBar from '../navBar/NavBar';

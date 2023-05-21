@@ -6,7 +6,7 @@ import './TableauAgGrid.css'
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
-import { localText } from './../../assets/constantes/localText';
+import { localText } from '../../assets/constantes/localText';
 import { defaultColDef } from '../../assets/constantes/rowDefs';
 
 const  TableauAgGrid = ({page}) => {

@@ -47,6 +47,39 @@ export const rowTransactions =[
      },
 ]
 
+export const rowTransactionsUsers =[
+   { 
+       headerName: 'Date de début',
+       field: 'date_debut',
+       filter: 'agDateColumnFilter',
+       filterParams: DateFilterParams,
+       sortable: true,
+       cellRenderer: (params) => {
+       return (params.value ? formatCellRenderer(params) : '')
+       },
+    },
+    { 
+       headerName: 'Date de fin',
+       field: 'date_fin',
+       filter: 'agDateColumnFilter',
+       filterParams: DateFilterParams,
+       sortable: true,
+       cellRenderer: (params) => {
+       return (params.value ? formatCellRenderer(params) : '')
+       },
+    },
+    { 
+       headerName: 'Object',
+       field: 'nom',
+       filter: 'agTextColumnFilter',
+       filterParams: TextFilterParams,
+       sortable: true,
+       cellRenderer: (params) => {
+       return (params.value ? formatCellRenderer(params) : '')
+       },
+    },
+]
+
 export const rowUsers = [
     { 
         headerName: 'Prenom',

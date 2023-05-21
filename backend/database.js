@@ -17,7 +17,7 @@ export async function getUsers(){
 }
 
 export async function getTransaction(){
-    const request = await pool.query("SELECT pret.date_debut, pret.date_fin, utilisateur.nom,utilisateur.prenom,materiel.nom from pretMateriel INNER JOIN materiel ON materiel.id = pretMateriel.materiel INNER JOIN pret on pret.id = pretMateriel.pret JOIN utilisateur ON utilisateur.id = pret.utilisateur");
+    const request = await pool.query("SELECT pret.date_debut, pret.date_fin, utilisateur.nom,utilisateur.prenom,utilisateur.adresse_mail,materiel.nom from pretMateriel INNER JOIN materiel ON materiel.id = pretMateriel.materiel INNER JOIN pret on pret.id = pretMateriel.pret JOIN utilisateur ON utilisateur.id = pret.utilisateur");
     return request[0];
 }
 
