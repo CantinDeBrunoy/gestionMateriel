@@ -2,12 +2,21 @@ import "./Inscription.css";
 import logo from "../assets/images/logo-tmp.png"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Toaster from "./Toaster";
+import NavBar from '../components/navBar/NavBar'
 
 function Inscription() {
   const navigate = useNavigate();
+  const [showToaster,setShowToaster] = useState(false);
+  const [infoToaster,setInfoToaster] = useState({
+    message:'',
+    setShowToaster,
+    type:'Warning',
+    taille:'petit'
+  });
 
   const afficherMdp = function(e) {
-    console.log(e.target.checked)
     const mdp = document.getElementsByName("mdp")[0];
     const confirmMdp = document.getElementsByName("confirm_mdp")[0]; 
     if (e.target.checked) {
@@ -27,20 +36,38 @@ function Inscription() {
     const confirmMdp = document.getElementsByName("confirm_mdp")[0].value;
 
     if (!nom || !prenom || !mail || !mdp || !confirmMdp) {
-      alert("Remplissez le formulaire !");
+      setInfoToaster({
+        message:'Remplissez le formulaire !',
+        setShowToaster,
+        type:'Warning',
+        taille:'petit',
+      });
+      setShowToaster(true);
       return;
     }
 
     const existingUsers = (await axios.get("http://127.0.0.1:3000/getUtilisateurs")).data;
     for (let i in existingUsers) {
       if (existingUsers[i].adresse_mail === mail) {
-        alert("L'utilisateur existe déjà !");
+        setInfoToaster({
+          message:'L utilisateur existe déjà !',
+          setShowToaster,
+          type:'Warning',
+          taille:'petit',
+        });
+        setShowToaster(true);
         return;
       }
     }
 
     if (mdp !== confirmMdp) {
-      alert("Mots de passe différents");
+      setInfoToaster({
+        message:'Mots de passe différents !',
+        setShowToaster,
+        type:'Warning',
+        taille:'petit',
+      });
+      setShowToaster(true);
       return;
     }
 
@@ -53,12 +80,18 @@ function Inscription() {
     };
 
     await axios.post("http://127.0.0.1:3000/AjoutUtilisateur", body);
-    alert("Utilisateur créé !");
-    navigate("/Connexion");
-
+    setInfoToaster({
+      message:'Utilisateur créé !',
+      setShowToaster,
+      type:'Success',
+      taille:'petit',
+    });
+    setShowToaster(true);
   }
   return (
   <div>
+    {showToaster && <Toaster message={infoToaster.message} setShowToaster={infoToaster.setShowToaster} type={infoToaster.type} taille={infoToaster.taille}/>}
+    <NavBar />
     <div className="Inscription">
       <div className="Inscription-form">
         <div className="Inscription-left">

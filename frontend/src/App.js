@@ -44,7 +44,6 @@ function App() {
   return (
     <React.StrictMode>
       <StoreProvider>
-        <NavBar />
         <RouterProvider router={router}/>
       </StoreProvider>
     </React.StrictMode>

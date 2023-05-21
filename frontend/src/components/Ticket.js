@@ -6,12 +6,27 @@ import { StoreContext } from "../store/store";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import NavBar from '../components/navBar/NavBar'
+import Toaster from "./Toaster";
+
+
 function Ticket() {
     const { state, dispatch } = React.useContext(StoreContext);
     const navigate = useNavigate();
 
     const [displayListMateriel, setDisplayListMateriel] = React.useState(false);
     const showListMateriel = () => setDisplayListMateriel(!displayListMateriel);
+    const [showToaster,setShowToaster] = useState(false);
+    const [infoToaster,setInfoToaster] = useState({
+        message:'Ticket envoyé',
+        setShowToaster,
+        type:'Success',
+        taille:'petit'
+      });
+    const ref = React.useRef(null);
+    const doClick = () => ref.current?.scrollIntoView({behavior: 'smooth'});
+
+    const [materielSelected, setMaterielSelected] = React.useState([]);
 
     const current = new Date();
     const actualDate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
@@ -23,7 +38,7 @@ function Ticket() {
         const description = document.getElementById("ticket-description").value;
         const dateDebut = document.getElementById("date-debut").value;
         const dateFin = document.getElementById("date-fin").value;
-        const materiels = state.selectedMaterials;
+        const materiels = materielSelected;
 
         if (!nom || !description || !dateDebut || !dateFin) {
             alert("Remplissez le formulare !");
@@ -45,7 +60,7 @@ function Ticket() {
             description: description,
             dateDebut: dateDebut,
             dateFin: dateFin,
-            userId: 1
+            userId: store.currentUserId
         }
 
         const newPret = (await axios.post("http://localhost:3000/AjoutPret", body)).data.idPret;
@@ -59,35 +74,44 @@ function Ticket() {
             await axios.post("http://localhost:3000/AjoutPretMateriel", body);
             await axios.post("http://localhost:3000/DecrementMateriel", body);
         })
-        alert("Ticket créé !");
+         setShowToaster(true);
         navigate("/");
     };
 
     return (
         <div>
+            <NavBar />
             <div className="Ticket">
+                {showToaster && <Toaster message={infoToaster.message} setShowToaster={infoToaster.setShowToaster} type={infoToaster.type} taille={infoToaster.taille}/>}
                 <h2>Réserver nos équipements</h2>
-                <h3>Créer un ticket : </h3>
+                
                 <div className="Ticket-form">
-                    <input id="ticket-nom" type="text" placeholder="Nom du ticket"/>
-                    <textarea id="ticket-description" rows="5" cols="50"
-                        placeholder="Description du ticket (ce que vous souhaitez faire avec le matériel)"/>
-                    <div className="Ticket-date">
-                        <span>Début de l'emprunt : </span>
-                        <input id="date-debut" type="date" min={actualDate}/>
-                        <br/>
-                        <span>Fin de l'emprunt : </span>
-                        <input id="date-fin" type="date" min={actualDate}/>
-                    </div>
-                    <button onClick={showListMateriel} className="Ticket-show-materiel orange">Choisir ce que j'emprunte</button>
-                    <button className="ButtonForm green Ticket-submit" onClick={sendTicket}>Envoyer</button>
+                <h3>Créer un ticket  </h3>
+                <div className="Ticket-form-section">
+                    <span>Nom du ticket </span>
+                    <input type="text" className="Ticket-InputText" placeholder="Nom du ticket"/>
                 </div>
-                {displayListMateriel ? 
-                    <div className="Ticket-materiel">
-                        <h3>Le matériel que j'emprunte : </h3>
-                        <RechercheMateriel />
-                    </div> : null
-                }
+                <div className="Ticket-form-section">
+                    <span>Description du ticket :</span>
+                    <textarea rows="5" cols="50" className="Ticket-InputText"
+                        placeholder="Description du ticket (ce que vous souhaitez faire avec le matériel)"/>
+                </div>
+                <div className="Ticket-form-section Ticket-date">
+                    <span>De  </span>
+                    <input type="date" min={actualDate}/>
+                    <br/>
+                    <span>A  </span>
+                    <input type="date" min={actualDate}/>
+                </div>
+                    <button onClick={doClick} className="Ticket-show-materiel green">Choisir ce que j'emprunte</button>
+                    <div className="Ticket-form-list-materiel-selected">
+                        {materielSelected.map((materiel)=><span>•{materiel.nom}</span>)}
+                    </div>
+                    <button onClick={sendTicket} className="ButtonForm green Ticket-submit">Envoyer</button>
+                </div>
+                <div className="Ticket-form-section" ref={ref}>
+                    <RechercheMateriel  setMaterielSelected={setMaterielSelected} materielSelected={materielSelected} listItems={listItems}/>
+                </div>
             </div>
         </div>
     )

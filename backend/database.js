@@ -16,11 +16,24 @@ export async function getUsers(){
     return request[0];
 }
 
+export async function getTransaction(){
+    const request = await pool.query("SELECT pret.date_debut, pret.date_fin, utilisateur.nom,utilisateur.prenom,materiel.nom from pretMateriel INNER JOIN materiel ON materiel.id = pretMateriel.materiel INNER JOIN pret on pret.id = pretMateriel.pret JOIN utilisateur ON utilisateur.id = pret.utilisateur");
+    return request[0];
+}
 
 export async function getMateriels(){
     const request = await pool.query("SELECT * from materiel");
     return request[0];
 }
+export async function getPret(){
+    const request = await pool.query("SELECT * from pret");
+    return request[0];
+}
+export async function getPretMateriel(){
+    const request = await pool.query("SELECT * from pretMateriel");
+    return request[0];
+}
+
 
 export async function addUtilisateur(utilisateur){ 
     const result = await pool.query(`INSERT INTO utilisateur (nom, prenom, adresse_mail, mot_de_passe, role) VALUES ('${utilisateur.nom}', '${utilisateur.prenom}', '${utilisateur.adresse_mail}', '${utilisateur.mot_de_passe}', 'utilisateur')`);

@@ -1,30 +1,6 @@
 import "./MaterielCard.css";
-import { StoreContext } from "../../store/store";
-import { useContext, useState } from "react";
 
 const  MaterielCard = ({card}) => {
-    const { state, dispatch } = useContext(StoreContext);
-    const classNames = `MaterielCard ${(state.selectedMaterials).has(card) ? 'selected' : 'not-selected'}`;
-
-    
-    let [myState, setMyState] = useState({
-      set: state.selectedMaterials
-    });
-
-    const selectMateriel = function() {
-      if (card.quantite === 0) {
-        return;
-      } 
-      const updatedSet = state.selectedMaterials;
-      if (myState.set.has(card)) {
-        updatedSet.delete(card);
-      } else {
-        updatedSet.add(card);
-      }
-      state.selectedMaterials = updatedSet;
-      setMyState({ set: updatedSet });
-    }
-
     return (
       <div className={classNames} onClick={selectMateriel}>
         <div>
