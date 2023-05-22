@@ -12,16 +12,43 @@ const MenuUser = () => {
     const [listTransaction, setlistTransaction] = useState([]);
     const [activePage, setActivePage] = useState([]);
     const { state, dispatch } = useContext(StoreContext);
+    const formatdate = function (dateString){
+      const dateJS = new Date(dateString);
+      var jour = dateJS.getDate();
+      var mois = dateJS.getMonth() + 1; // Les mois commencent à 0, donc on ajoute 1
+      var annee = dateJS.getFullYear();
+
+      // Ajout des zéros initiaux si nécessaire
+      if (jour < 10) {
+        jour = '0' + jour;
+      }
+
+      if (mois < 10) {
+        mois = '0' + mois;
+      }
+      
+      // Conversion en format "dd/mm/yyyy"
+      var dateConvertie = jour + '/' + mois + '/' + annee;
+      return dateConvertie;
+  }
+
+      
+
   
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
+          let Transaction =(await axios.get("http://localhost:4000/getPretTicket")).data
+          Transaction.forEach((element) => {
+            console.log(element)
+            element.date_debut = formatdate(element.date_debut);
+            element.date_fin = formatdate(element.date_fin);
+          })
           const TransactionFiltréMail = Transaction.filter(transaction => transaction.adresse_mail === state.currentUserName);
           const TransactionFiltréFinal = TransactionFiltréMail.map(({ id,date_debut,date_fin,nom,description }) => ({
             id: id,
-            date_debut: date_debut,
-            date_fin: date_fin,
+            date_debut: formatdate(date_debut),
+            date_fin: formatdate(date_fin),
             nom: nom,
             description : description
           }));

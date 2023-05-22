@@ -25,12 +25,15 @@ function NavBar() {
   const navigateToMenuUser = () => {
     navigate('/MenuUser');
   };
+  const navigateToAccueil = () => {
+    navigate('/');
+  };
 
   if (state.connected && state.currentUserRole ==="utilisateur") {
     return (
       <div className="NavBar">
         <div className="NavBar-Titre">
-          <a className="NavBar-LMC" href="/" >
+          <a className="NavBar-LMC" onClick={navigateToAccueil}>
             <img src={laTete} height="50px"/>
             <span>Le mauvais coin</span>
           </a>
