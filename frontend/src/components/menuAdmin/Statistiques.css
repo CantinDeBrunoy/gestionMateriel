@@ -2,3 +2,14 @@
     width: 20em;
     height: 20em;
 }
+.Statistiques {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Statistiques>h2 {
+    margin: 2em 0em;
+}
+.Statistiques-PieChart>span {
+    align-self: flex-start;
+}

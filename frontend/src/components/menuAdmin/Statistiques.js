@@ -59,6 +59,7 @@ const Statistiques = () => {
 
   return (
     <div className="Statistiques">
+      <h2>Statistiques du site : </h2>
       <div className="Statistiques-PieChart">
         <span>Répartition des rôles</span>
         <Pie data={data} />
