@@ -46,3 +46,11 @@
         width: 18em;
     }
 }
+
+.rowTitle {
+    font-weight: bold;
+}
+
+li {
+    list-style-type: none;
+}

@@ -1,10 +1,10 @@
 import "./Inscription.css";
-import logo from "../assets/images/logo-tmp.png"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Toaster from "./Toaster";
-import NavBar from '../components/navBar/NavBar'
+import NavBar from '../components/navBar/NavBar';
+import logo from "../assets/images/Le_mauvais_coin_1.png";
 
 function Inscription() {
   const navigate = useNavigate();
@@ -115,7 +115,6 @@ function Inscription() {
         </div>
         <div className="Inscription-right">
           <img src={logo} alt="Logo de l'appli"/>
-          <span>Le Mauvais Coin, le coin des malandrins</span>
         </div>
       </div>
     </div>

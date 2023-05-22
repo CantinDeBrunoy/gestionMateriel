@@ -14,10 +14,10 @@ const  MaterielCard = ({card}) => {
         <div>
           <span >
           <ul>
-            <li>Marque :{card.marque ? card.marque :' marque inconnue'} </li>
-            <li>Description :{card.description ? card.description :' aucune description'}</li>
-            <li>Prix : {card.prix ? card.prix :' prix inconnu'}€</li>
-            <li>Quantité restante : {card.quantite ? card.quantite :' quantité restante inconnue'}</li>
+            <li><span className = "rowTitle">Marque :</span> {card.marque ? card.marque :' marque inconnue'} </li>
+            <li><span className = "rowTitle">Description :</span> {card.description ? card.description :' aucune description'}</li>
+            <li><span className = "rowTitle">Prix :</span> {card.prix ? card.prix :' prix inconnu'}€</li>
+            <li><span className = "rowTitle">Quantité restante :</span> {card.quantite ? card.quantite :' quantité restante inconnue'}</li>
           </ul>
           </span>
         </div>

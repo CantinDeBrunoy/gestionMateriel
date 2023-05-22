@@ -22,7 +22,10 @@
     font-size: 18px;
     position: absolute;
     left: 1.5em;
-    color: #FF7E47 !important;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .NavBar-dropdown-content {
     position: absolute;
@@ -60,4 +63,18 @@
     .NavBar>.NavBar-dropdown {
         display: none;
     }
+}
+
+.NavBar-LMC {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-bottom: solid #131921 1px;
+}
+
+.NavBar-LMC>* {
+    color: #FF7E47;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
