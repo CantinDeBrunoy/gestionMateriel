@@ -41,6 +41,10 @@ export async function getPretMateriel(){
     const request = await pool.query("SELECT * from pretMateriel");
     return request[0];
 }
+export async function getPretMaterielByPret(pret) {
+    const request = await pool.query("SELECT * from pretMateriel WHERE pret = ?",[pret.id]);
+    return request[0];
+}
 export async function getPretTicket(){
     const request = await pool.query("SELECT pret.id, pret.date_debut, pret.date_fin, utilisateur.nom, utilisateur.adresse_mail, pret.nom, pret.description FROM pret INNER JOIN utilisateur ON pret.utilisateur = utilisateur.id;");
     return request[0];
@@ -63,7 +67,6 @@ export async function deletePretMateriel(pret){
 }
 
 export async function deleteUser(user) {
-    console.log(user);
     const result = await pool.query(`DELETE FROM utilisateur WHERE id = ?`,[user.id]);
 }
 

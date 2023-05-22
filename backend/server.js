@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket,changeStatus,deletePretMateriel,getUsersNumber,getAdminNumber, deleteUser} from "./database.js";
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket,changeStatus,deletePretMateriel,getUsersNumber,getAdminNumber, deleteUser, getPretMaterielByPret, getPretMateriel, getPret} from "./database.js";
 
 
 const app = express();
@@ -69,6 +69,10 @@ app.post('/AjoutUtilisateur',async(req,res)=> {
 
 app.post('/DeletePretMateriel',async(req,res)=>{
     const pret = req.body;
+    const pretMateriel = await getPretMaterielByPret(pret);
+    pretMateriel.forEach(async (element) => {
+        await incrementMateriel(element.materiel);
+    })
     const deletePret = await deletePretMateriel(pret);
     res.send(deletePret);
 })
