@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './BoutonUtilisateur.css'
 import bin from '../../assets/images/bin.svg'
-import Toaster from '../Toaster';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -14,20 +13,20 @@ const  BoutonUtilisateur = ({data,params,value},props) => {
     };
     const changeStatus = async() => {
       if (data.role ==="utilisateur"){
-        alert("t'as glow up");
         data.role = "admin";
       }
       else
       {
-        alert("t'as glow down");
         data.role ="utilisateur";
       }
       const body = {
         id : data.id,
         role : data.role
       }
-      await axios.post("http://127.0.0.1:4000/changeStatus", body);
+      const response = (await axios.post("http://127.0.0.1:4000/changeStatus", body)).data;
+      console.log(response)
       navigate('/ticket');
+      setTimeout(() => navigate('/MenuAdmin'),1);
     }
     return (
     <div className='BoutonUtilisateur' key = {data.adresse_mail}>

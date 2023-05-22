@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket,changeStatus,deletePretMateriel,getUsersNumber,getAdminNumber} from "./database.js";
+import { getUsers ,getMateriels,addUtilisateur,addMateriel, addPret, addPretMateriel, decrementMateriel, incrementMateriel, getTransaction,getPretTicket,changeStatus,deletePretMateriel,getUsersNumber,getAdminNumber, deleteUser} from "./database.js";
 
 
 const app = express();
@@ -73,6 +73,12 @@ app.post('/DeletePretMateriel',async(req,res)=>{
     res.send(deletePret);
 })
 
+app.post('/DeleteUser',async(req,res)=>{
+    const user = req.body;
+    const deletedUser = await deleteUser(user);
+    res.send(deletedUser);
+})
+
 //AjoutMateriel
 app.post('/AjoutMateriel',async(req,res)=> {
     const materielTmp = {
@@ -110,7 +116,8 @@ app.post('/IncrementMateriel', async (req, res) => {
 })
 app.post('/changeStatus', async (req, res) => {
     const role = req.body;
-    await changeStatus(role);
+    const ok = await changeStatus(role);
+    res.send(ok)
 })
 
 app.listen(port,()=> console.log(`app is running on port ${port} :D`));

@@ -58,7 +58,13 @@ export async function addMateriel(materiel){
 }
 
 export async function deletePretMateriel(pret){
+    await pool.query(`DELETE FROM pretMateriel WHERE pret = ?`,[pret.id])
     const result = await pool.query(`DELETE FROM pret WHERE id = ?`,[pret.id]);
+}
+
+export async function deleteUser(user) {
+    console.log(user);
+    const result = await pool.query(`DELETE FROM utilisateur WHERE id = ?`,[user.id]);
 }
 
 export async function addPret(pret) {
